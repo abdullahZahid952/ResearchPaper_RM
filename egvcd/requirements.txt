@@ -1,0 +1,9 @@
+torch
+transformers
+accelerate
+requests
+scipy
+numpy
+pandas
+matplotlib
+pillow

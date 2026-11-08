@@ -1,0 +1,40 @@
+# Condensed Kaggle console output (2x Tesla T4). Per-50-question progress lines omitted; all step headers, timing and results kept.
+[00:40:01 | +  0.0 min] STEP 0/6  checking GPUs
+GPU 0: Tesla T4 (UUID: GPU-8369d35e-b6f5-48b9-9bdc-1036a7bd5b39)
+GPU 1: Tesla T4 (UUID: GPU-e5f1e9d9-1b4e-1814-8bd2-8cfa81ea6da3)
+[00:40:01 | +  0.0 min] STEP 0/6  installing libraries (pip dependency warnings about ydata-profiling/datasets/gradio are unrelated to this run)
+[00:40:24 | +  0.4 min] STEP 1/6  downloading POPE questions + 150 COCO images
+random 900 questions / popular 900 questions / adversarial 900 questions / images: 150
+[00:41:29 | +  1.5 min] STEP 2/6  downloading llava-1.5-7b-hf
+model at /root/.cache/huggingface/hub/models--llava-hf--llava-1.5-7b-hf/snapshots/b234b804b114d9e37bb655e11cbbb5f5e971b7a9
+[00:42:36 | +  2.6 min] STEP 3/6  caching model logits on 2 GPU job(s)
+[GPU0] clean -> lowlight   |   [GPU1] noise -> blur   (about 65 s per 50 questions, 19 min per split)
+[01:40:33 | + 60.5 min] [GPU1] finished condition 'noise'
+[01:41:17 | + 61.3 min] [GPU0] finished condition 'clean'
+[02:37:47 | +117.8 min] [GPU1] finished condition 'blur'
+[02:40:39 | +120.6 min] [GPU0] finished condition 'lowlight'
+[02:40:39 | +120.6 min] caching finished: 12/12 cache files present
+[02:40:39 | +120.6 min] STEP 4/6  measuring latency on a single GPU
+base {'ms_mean': 661.3278089699634, 'ms_std': 34.20252194847169, 'prefills': 1.0}
+vcd {'ms_mean': 1294.7506113399777, 'ms_std': 27.036619268885712, 'prefills': 2.0}
+eg_0.05 {'ms_mean': 1247.4862181099525, 'ms_std': 176.52872513693924, 'prefills': 1.92}
+eg_0.1 {'ms_mean': 1118.7452944900815, 'ms_std': 282.11990081399347, 'prefills': 1.74}
+eg_0.2 {'ms_mean': 941.7040160199758, 'ms_std': 323.1463309500059, 'prefills': 1.45}
+eg_0.3 {'ms_mean': 894.5056271799331, 'ms_std': 315.65327314205626, 'prefills': 1.37}
+eg_0.5 {'ms_mean': 744.3575112599683, 'ms_std': 226.80439087849683, 'prefills': 1.14}
+[02:52:58 | +133.0 min] STEP 5/6  analysis (5 sampling seeds, mean over the 3 POPE splits)
+cond     method        acc     f1   yes%   rho prefills
+clean    base        81.67  80.32   43.0  0.00     1.00
+clean    vcd         85.47  85.48   49.6  1.00     2.00
+clean    eg_0.1      85.24  85.27   49.7  0.74     1.74
+clean    eg_0.2      84.47  84.48   49.6  0.49     1.49
+clean    eg_0.3      83.72  83.77   50.0  0.37     1.37
+clean    eg_0.5      83.38  83.18   48.5  0.20     1.20
+lowlight base        80.43  78.51   40.9  0.00     1.00
+lowlight vcd         84.08  84.52   52.1  1.00     2.00
+noise    base        81.63  79.99   41.7  0.00     1.00
+noise    vcd         84.28  84.14   48.6  1.00     2.00
+blur     base        78.55  75.89   38.8  0.00     1.00
+blur     vcd         82.89  82.74   48.6  1.00     2.00
+(full table: results/results.csv)
+[02:53:01 | +133.0 min] STEP 6/6  packaging -> ALL DONE
