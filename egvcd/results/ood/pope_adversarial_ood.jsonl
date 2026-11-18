@@ -1,0 +1,600 @@
+{"question_id": 13, "image": "ood_0208.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 14, "image": "ood_0208.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 15, "image": "ood_0208.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 16, "image": "ood_0208.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 17, "image": "ood_0208.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 18, "image": "ood_0208.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 31, "image": "ood_0188.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 32, "image": "ood_0188.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 33, "image": "ood_0188.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 34, "image": "ood_0188.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 35, "image": "ood_0188.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 36, "image": "ood_0188.jpg", "text": "Is there a Overpass in the image?", "label": "no"}
+{"question_id": 49, "image": "ood_0012.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 50, "image": "ood_0012.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 51, "image": "ood_0012.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 52, "image": "ood_0012.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 53, "image": "ood_0012.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 54, "image": "ood_0012.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 67, "image": "ood_0221.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 68, "image": "ood_0221.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 69, "image": "ood_0221.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 70, "image": "ood_0221.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 71, "image": "ood_0221.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 72, "image": "ood_0221.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 85, "image": "ood_0239.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 86, "image": "ood_0239.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 87, "image": "ood_0239.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 88, "image": "ood_0239.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 89, "image": "ood_0239.jpg", "text": "Is there a Storage tank in the image?", "label": "no"}
+{"question_id": 90, "image": "ood_0239.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 103, "image": "ood_0136.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 104, "image": "ood_0136.jpg", "text": "Is there a Train station in the image?", "label": "yes"}
+{"question_id": 105, "image": "ood_0136.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 106, "image": "ood_0136.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 107, "image": "ood_0136.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 108, "image": "ood_0136.jpg", "text": "Is there a Overpass in the image?", "label": "no"}
+{"question_id": 121, "image": "ood_0230.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 122, "image": "ood_0230.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 123, "image": "ood_0230.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 124, "image": "ood_0230.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 125, "image": "ood_0230.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 126, "image": "ood_0230.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 139, "image": "ood_0206.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 140, "image": "ood_0206.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 141, "image": "ood_0206.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 142, "image": "ood_0206.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 143, "image": "ood_0206.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 144, "image": "ood_0206.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 157, "image": "ood_0052.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 158, "image": "ood_0052.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 159, "image": "ood_0052.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 160, "image": "ood_0052.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 161, "image": "ood_0052.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 162, "image": "ood_0052.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 175, "image": "ood_0108.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 176, "image": "ood_0108.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 177, "image": "ood_0108.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 178, "image": "ood_0108.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 179, "image": "ood_0108.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 180, "image": "ood_0108.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 193, "image": "ood_0290.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 194, "image": "ood_0290.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 195, "image": "ood_0290.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 196, "image": "ood_0290.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 197, "image": "ood_0290.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 198, "image": "ood_0290.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 211, "image": "ood_0015.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 212, "image": "ood_0015.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 213, "image": "ood_0015.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 214, "image": "ood_0015.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 215, "image": "ood_0015.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 216, "image": "ood_0015.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 229, "image": "ood_0184.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 230, "image": "ood_0184.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 231, "image": "ood_0184.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 232, "image": "ood_0184.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 233, "image": "ood_0184.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 234, "image": "ood_0184.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 247, "image": "ood_0248.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 248, "image": "ood_0248.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 249, "image": "ood_0248.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 250, "image": "ood_0248.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 251, "image": "ood_0248.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 252, "image": "ood_0248.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 265, "image": "ood_0022.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 266, "image": "ood_0022.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 267, "image": "ood_0022.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 268, "image": "ood_0022.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 269, "image": "ood_0022.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 270, "image": "ood_0022.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 283, "image": "ood_0074.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 284, "image": "ood_0074.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 285, "image": "ood_0074.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 286, "image": "ood_0074.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 287, "image": "ood_0074.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 288, "image": "ood_0074.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 301, "image": "ood_0270.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 302, "image": "ood_0270.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 303, "image": "ood_0270.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 304, "image": "ood_0270.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 305, "image": "ood_0270.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 306, "image": "ood_0270.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 319, "image": "ood_0090.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 320, "image": "ood_0090.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 321, "image": "ood_0090.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 322, "image": "ood_0090.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 323, "image": "ood_0090.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 324, "image": "ood_0090.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 337, "image": "ood_0229.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 338, "image": "ood_0229.jpg", "text": "Is there a Expressway service area in the image?", "label": "yes"}
+{"question_id": 339, "image": "ood_0229.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 340, "image": "ood_0229.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 341, "image": "ood_0229.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 342, "image": "ood_0229.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 355, "image": "ood_0164.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 356, "image": "ood_0164.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 357, "image": "ood_0164.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 358, "image": "ood_0164.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 359, "image": "ood_0164.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 360, "image": "ood_0164.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 373, "image": "ood_0190.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 374, "image": "ood_0190.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 375, "image": "ood_0190.jpg", "text": "Is there a Airport in the image?", "label": "yes"}
+{"question_id": 376, "image": "ood_0190.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 377, "image": "ood_0190.jpg", "text": "Is there a Overpass in the image?", "label": "no"}
+{"question_id": 378, "image": "ood_0190.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 391, "image": "ood_0103.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 392, "image": "ood_0103.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 393, "image": "ood_0103.jpg", "text": "Is there a Golf course in the image?", "label": "yes"}
+{"question_id": 394, "image": "ood_0103.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 395, "image": "ood_0103.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 396, "image": "ood_0103.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 409, "image": "ood_0124.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 410, "image": "ood_0124.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 411, "image": "ood_0124.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 412, "image": "ood_0124.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 413, "image": "ood_0124.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 414, "image": "ood_0124.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 427, "image": "ood_0129.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 428, "image": "ood_0129.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 429, "image": "ood_0129.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 430, "image": "ood_0129.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 431, "image": "ood_0129.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 432, "image": "ood_0129.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 445, "image": "ood_0222.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 446, "image": "ood_0222.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 447, "image": "ood_0222.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 448, "image": "ood_0222.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 449, "image": "ood_0222.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 450, "image": "ood_0222.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 463, "image": "ood_0116.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 464, "image": "ood_0116.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 465, "image": "ood_0116.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 466, "image": "ood_0116.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 467, "image": "ood_0116.jpg", "text": "Is there a Storage tank in the image?", "label": "no"}
+{"question_id": 468, "image": "ood_0116.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 481, "image": "ood_0194.jpg", "text": "Is there a Expressway service area in the image?", "label": "yes"}
+{"question_id": 482, "image": "ood_0194.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 483, "image": "ood_0194.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 484, "image": "ood_0194.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 485, "image": "ood_0194.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 486, "image": "ood_0194.jpg", "text": "Is there a Overpass in the image?", "label": "no"}
+{"question_id": 499, "image": "ood_0286.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 500, "image": "ood_0286.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 501, "image": "ood_0286.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 502, "image": "ood_0286.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 503, "image": "ood_0286.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 504, "image": "ood_0286.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 517, "image": "ood_0234.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 518, "image": "ood_0234.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 519, "image": "ood_0234.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 520, "image": "ood_0234.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 521, "image": "ood_0234.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 522, "image": "ood_0234.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 535, "image": "ood_0295.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 536, "image": "ood_0295.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 537, "image": "ood_0295.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 538, "image": "ood_0295.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 539, "image": "ood_0295.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 540, "image": "ood_0295.jpg", "text": "Is there a Chimney in the image?", "label": "no"}
+{"question_id": 553, "image": "ood_0092.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 554, "image": "ood_0092.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 555, "image": "ood_0092.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 556, "image": "ood_0092.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 557, "image": "ood_0092.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 558, "image": "ood_0092.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 571, "image": "ood_0066.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 572, "image": "ood_0066.jpg", "text": "Is there a Expressway service area in the image?", "label": "yes"}
+{"question_id": 573, "image": "ood_0066.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 574, "image": "ood_0066.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 575, "image": "ood_0066.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 576, "image": "ood_0066.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 589, "image": "ood_0008.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 590, "image": "ood_0008.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 591, "image": "ood_0008.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 592, "image": "ood_0008.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 593, "image": "ood_0008.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 594, "image": "ood_0008.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 607, "image": "ood_0122.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 608, "image": "ood_0122.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 609, "image": "ood_0122.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 610, "image": "ood_0122.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 611, "image": "ood_0122.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 612, "image": "ood_0122.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 625, "image": "ood_0219.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 626, "image": "ood_0219.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 627, "image": "ood_0219.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 628, "image": "ood_0219.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 629, "image": "ood_0219.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 630, "image": "ood_0219.jpg", "text": "Is there a Chimney in the image?", "label": "no"}
+{"question_id": 643, "image": "ood_0150.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 644, "image": "ood_0150.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 645, "image": "ood_0150.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 646, "image": "ood_0150.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 647, "image": "ood_0150.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 648, "image": "ood_0150.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 661, "image": "ood_0176.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 662, "image": "ood_0176.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 663, "image": "ood_0176.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 664, "image": "ood_0176.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 665, "image": "ood_0176.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 666, "image": "ood_0176.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 679, "image": "ood_0182.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 680, "image": "ood_0182.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 681, "image": "ood_0182.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 682, "image": "ood_0182.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 683, "image": "ood_0182.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 684, "image": "ood_0182.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 697, "image": "ood_0299.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 698, "image": "ood_0299.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 699, "image": "ood_0299.jpg", "text": "Is there a Expressway service area in the image?", "label": "yes"}
+{"question_id": 700, "image": "ood_0299.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 701, "image": "ood_0299.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 702, "image": "ood_0299.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 715, "image": "ood_0005.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 716, "image": "ood_0005.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 717, "image": "ood_0005.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 718, "image": "ood_0005.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 719, "image": "ood_0005.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 720, "image": "ood_0005.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 733, "image": "ood_0223.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 734, "image": "ood_0223.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 735, "image": "ood_0223.jpg", "text": "Is there a Expressway toll station in the image?", "label": "yes"}
+{"question_id": 736, "image": "ood_0223.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 737, "image": "ood_0223.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 738, "image": "ood_0223.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 751, "image": "ood_0089.jpg", "text": "Is there a Airport in the image?", "label": "yes"}
+{"question_id": 752, "image": "ood_0089.jpg", "text": "Is there a Golf course in the image?", "label": "yes"}
+{"question_id": 753, "image": "ood_0089.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 754, "image": "ood_0089.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 755, "image": "ood_0089.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 756, "image": "ood_0089.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 769, "image": "ood_0081.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 770, "image": "ood_0081.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 771, "image": "ood_0081.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 772, "image": "ood_0081.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 773, "image": "ood_0081.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 774, "image": "ood_0081.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 787, "image": "ood_0034.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 788, "image": "ood_0034.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 789, "image": "ood_0034.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 790, "image": "ood_0034.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 791, "image": "ood_0034.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 792, "image": "ood_0034.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 805, "image": "ood_0055.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 806, "image": "ood_0055.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 807, "image": "ood_0055.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 808, "image": "ood_0055.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 809, "image": "ood_0055.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 810, "image": "ood_0055.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 823, "image": "ood_0139.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 824, "image": "ood_0139.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 825, "image": "ood_0139.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 826, "image": "ood_0139.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 827, "image": "ood_0139.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 828, "image": "ood_0139.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 841, "image": "ood_0236.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 842, "image": "ood_0236.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 843, "image": "ood_0236.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 844, "image": "ood_0236.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 845, "image": "ood_0236.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 846, "image": "ood_0236.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 859, "image": "ood_0064.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 860, "image": "ood_0064.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 861, "image": "ood_0064.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 862, "image": "ood_0064.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 863, "image": "ood_0064.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 864, "image": "ood_0064.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 877, "image": "ood_0007.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 878, "image": "ood_0007.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 879, "image": "ood_0007.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 880, "image": "ood_0007.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 881, "image": "ood_0007.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 882, "image": "ood_0007.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 895, "image": "ood_0045.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 896, "image": "ood_0045.jpg", "text": "Is there a Airport in the image?", "label": "yes"}
+{"question_id": 897, "image": "ood_0045.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 898, "image": "ood_0045.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 899, "image": "ood_0045.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 900, "image": "ood_0045.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 913, "image": "ood_0073.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 914, "image": "ood_0073.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 915, "image": "ood_0073.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 916, "image": "ood_0073.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 917, "image": "ood_0073.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 918, "image": "ood_0073.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 931, "image": "ood_0213.jpg", "text": "Is there a Airport in the image?", "label": "yes"}
+{"question_id": 932, "image": "ood_0213.jpg", "text": "Is there a Golf course in the image?", "label": "yes"}
+{"question_id": 933, "image": "ood_0213.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 934, "image": "ood_0213.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 935, "image": "ood_0213.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 936, "image": "ood_0213.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 949, "image": "ood_0173.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 950, "image": "ood_0173.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 951, "image": "ood_0173.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 952, "image": "ood_0173.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 953, "image": "ood_0173.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 954, "image": "ood_0173.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 967, "image": "ood_0106.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 968, "image": "ood_0106.jpg", "text": "Is there a Dam in the image?", "label": "yes"}
+{"question_id": 969, "image": "ood_0106.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 970, "image": "ood_0106.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 971, "image": "ood_0106.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 972, "image": "ood_0106.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 985, "image": "ood_0059.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 986, "image": "ood_0059.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 987, "image": "ood_0059.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 988, "image": "ood_0059.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 989, "image": "ood_0059.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 990, "image": "ood_0059.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1003, "image": "ood_0253.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 1004, "image": "ood_0253.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1005, "image": "ood_0253.jpg", "text": "Is there a Expressway toll station in the image?", "label": "yes"}
+{"question_id": 1006, "image": "ood_0253.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1007, "image": "ood_0253.jpg", "text": "Is there a Overpass in the image?", "label": "no"}
+{"question_id": 1008, "image": "ood_0253.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1021, "image": "ood_0168.jpg", "text": "Is there a Golf course in the image?", "label": "yes"}
+{"question_id": 1022, "image": "ood_0168.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1023, "image": "ood_0168.jpg", "text": "Is there a Airport in the image?", "label": "yes"}
+{"question_id": 1024, "image": "ood_0168.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1025, "image": "ood_0168.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1026, "image": "ood_0168.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1039, "image": "ood_0026.jpg", "text": "Is there a Expressway toll station in the image?", "label": "yes"}
+{"question_id": 1040, "image": "ood_0026.jpg", "text": "Is there a Chimney in the image?", "label": "yes"}
+{"question_id": 1041, "image": "ood_0026.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1042, "image": "ood_0026.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1043, "image": "ood_0026.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1044, "image": "ood_0026.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1057, "image": "ood_0284.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 1058, "image": "ood_0284.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1059, "image": "ood_0284.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1060, "image": "ood_0284.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1061, "image": "ood_0284.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1062, "image": "ood_0284.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1075, "image": "ood_0153.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1076, "image": "ood_0153.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1077, "image": "ood_0153.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1078, "image": "ood_0153.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 1079, "image": "ood_0153.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1080, "image": "ood_0153.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1093, "image": "ood_0134.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1094, "image": "ood_0134.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 1095, "image": "ood_0134.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1096, "image": "ood_0134.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1097, "image": "ood_0134.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1098, "image": "ood_0134.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1111, "image": "ood_0145.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1112, "image": "ood_0145.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 1113, "image": "ood_0145.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1114, "image": "ood_0145.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1115, "image": "ood_0145.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1116, "image": "ood_0145.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1129, "image": "ood_0063.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1130, "image": "ood_0063.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 1131, "image": "ood_0063.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1132, "image": "ood_0063.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1133, "image": "ood_0063.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1134, "image": "ood_0063.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1147, "image": "ood_0293.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1148, "image": "ood_0293.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1149, "image": "ood_0293.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1150, "image": "ood_0293.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1151, "image": "ood_0293.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1152, "image": "ood_0293.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1165, "image": "ood_0285.jpg", "text": "Is there a Golf course in the image?", "label": "yes"}
+{"question_id": 1166, "image": "ood_0285.jpg", "text": "Is there a Expressway toll station in the image?", "label": "yes"}
+{"question_id": 1167, "image": "ood_0285.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1168, "image": "ood_0285.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1169, "image": "ood_0285.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1170, "image": "ood_0285.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1183, "image": "ood_0224.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 1184, "image": "ood_0224.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1185, "image": "ood_0224.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1186, "image": "ood_0224.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1187, "image": "ood_0224.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1188, "image": "ood_0224.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1201, "image": "ood_0252.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1202, "image": "ood_0252.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1203, "image": "ood_0252.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1204, "image": "ood_0252.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1205, "image": "ood_0252.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1206, "image": "ood_0252.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1219, "image": "ood_0111.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1220, "image": "ood_0111.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1221, "image": "ood_0111.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 1222, "image": "ood_0111.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1223, "image": "ood_0111.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1224, "image": "ood_0111.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1237, "image": "ood_0020.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1238, "image": "ood_0020.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1239, "image": "ood_0020.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 1240, "image": "ood_0020.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1241, "image": "ood_0020.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1242, "image": "ood_0020.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1255, "image": "ood_0046.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1256, "image": "ood_0046.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1257, "image": "ood_0046.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 1258, "image": "ood_0046.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1259, "image": "ood_0046.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1260, "image": "ood_0046.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1273, "image": "ood_0156.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1274, "image": "ood_0156.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1275, "image": "ood_0156.jpg", "text": "Is there a Train station in the image?", "label": "yes"}
+{"question_id": 1276, "image": "ood_0156.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1277, "image": "ood_0156.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1278, "image": "ood_0156.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1291, "image": "ood_0228.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1292, "image": "ood_0228.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 1293, "image": "ood_0228.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1294, "image": "ood_0228.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1295, "image": "ood_0228.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1296, "image": "ood_0228.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1309, "image": "ood_0273.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1310, "image": "ood_0273.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 1311, "image": "ood_0273.jpg", "text": "Is there a Train station in the image?", "label": "yes"}
+{"question_id": 1312, "image": "ood_0273.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1313, "image": "ood_0273.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1314, "image": "ood_0273.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1327, "image": "ood_0027.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1328, "image": "ood_0027.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1329, "image": "ood_0027.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1330, "image": "ood_0027.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1331, "image": "ood_0027.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1332, "image": "ood_0027.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 1345, "image": "ood_0144.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1346, "image": "ood_0144.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1347, "image": "ood_0144.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1348, "image": "ood_0144.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1349, "image": "ood_0144.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1350, "image": "ood_0144.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1363, "image": "ood_0259.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 1364, "image": "ood_0259.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1365, "image": "ood_0259.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1366, "image": "ood_0259.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1367, "image": "ood_0259.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1368, "image": "ood_0259.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1381, "image": "ood_0037.jpg", "text": "Is there a Airport in the image?", "label": "yes"}
+{"question_id": 1382, "image": "ood_0037.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1383, "image": "ood_0037.jpg", "text": "Is there a Golf course in the image?", "label": "yes"}
+{"question_id": 1384, "image": "ood_0037.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1385, "image": "ood_0037.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1386, "image": "ood_0037.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1399, "image": "ood_0097.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1400, "image": "ood_0097.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1401, "image": "ood_0097.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 1402, "image": "ood_0097.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1403, "image": "ood_0097.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1404, "image": "ood_0097.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1417, "image": "ood_0191.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1418, "image": "ood_0191.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1419, "image": "ood_0191.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 1420, "image": "ood_0191.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1421, "image": "ood_0191.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1422, "image": "ood_0191.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1435, "image": "ood_0135.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1436, "image": "ood_0135.jpg", "text": "Is there a Airplane in the image?", "label": "yes"}
+{"question_id": 1437, "image": "ood_0135.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1438, "image": "ood_0135.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 1439, "image": "ood_0135.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1440, "image": "ood_0135.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1453, "image": "ood_0118.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1454, "image": "ood_0118.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1455, "image": "ood_0118.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1456, "image": "ood_0118.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 1457, "image": "ood_0118.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1458, "image": "ood_0118.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1471, "image": "ood_0160.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1472, "image": "ood_0160.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1473, "image": "ood_0160.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1474, "image": "ood_0160.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1475, "image": "ood_0160.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1476, "image": "ood_0160.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1489, "image": "ood_0264.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 1490, "image": "ood_0264.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1491, "image": "ood_0264.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1492, "image": "ood_0264.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1493, "image": "ood_0264.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1494, "image": "ood_0264.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1507, "image": "ood_0214.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1508, "image": "ood_0214.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1509, "image": "ood_0214.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1510, "image": "ood_0214.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 1511, "image": "ood_0214.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1512, "image": "ood_0214.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1525, "image": "ood_0238.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 1526, "image": "ood_0238.jpg", "text": "Is there a Chimney in the image?", "label": "yes"}
+{"question_id": 1527, "image": "ood_0238.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1528, "image": "ood_0238.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1529, "image": "ood_0238.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1530, "image": "ood_0238.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 1543, "image": "ood_0076.jpg", "text": "Is there a Basketball court in the image?", "label": "yes"}
+{"question_id": 1544, "image": "ood_0076.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1545, "image": "ood_0076.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1546, "image": "ood_0076.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1547, "image": "ood_0076.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1548, "image": "ood_0076.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1561, "image": "ood_0212.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 1562, "image": "ood_0212.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1563, "image": "ood_0212.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1564, "image": "ood_0212.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1565, "image": "ood_0212.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1566, "image": "ood_0212.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1579, "image": "ood_0225.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 1580, "image": "ood_0225.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1581, "image": "ood_0225.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1582, "image": "ood_0225.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1583, "image": "ood_0225.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1584, "image": "ood_0225.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1597, "image": "ood_0255.jpg", "text": "Is there a Expressway service area in the image?", "label": "yes"}
+{"question_id": 1598, "image": "ood_0255.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1599, "image": "ood_0255.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1600, "image": "ood_0255.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1601, "image": "ood_0255.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1602, "image": "ood_0255.jpg", "text": "Is there a Ship in the image?", "label": "no"}
+{"question_id": 1615, "image": "ood_0237.jpg", "text": "Is there a Golf course in the image?", "label": "yes"}
+{"question_id": 1616, "image": "ood_0237.jpg", "text": "Is there a Airport in the image?", "label": "yes"}
+{"question_id": 1617, "image": "ood_0237.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1618, "image": "ood_0237.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1619, "image": "ood_0237.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1620, "image": "ood_0237.jpg", "text": "Is there a Expressway toll station in the image?", "label": "no"}
+{"question_id": 1633, "image": "ood_0282.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1634, "image": "ood_0282.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1635, "image": "ood_0282.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1636, "image": "ood_0282.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1637, "image": "ood_0282.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1638, "image": "ood_0282.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1651, "image": "ood_0044.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 1652, "image": "ood_0044.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1653, "image": "ood_0044.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1654, "image": "ood_0044.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1655, "image": "ood_0044.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1656, "image": "ood_0044.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1669, "image": "ood_0272.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1670, "image": "ood_0272.jpg", "text": "Is there a Tennis court in the image?", "label": "yes"}
+{"question_id": 1671, "image": "ood_0272.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1672, "image": "ood_0272.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1673, "image": "ood_0272.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1674, "image": "ood_0272.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1687, "image": "ood_0189.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1688, "image": "ood_0189.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1689, "image": "ood_0189.jpg", "text": "Is there a Baseball field in the image?", "label": "yes"}
+{"question_id": 1690, "image": "ood_0189.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1691, "image": "ood_0189.jpg", "text": "Is there a Basketball court in the image?", "label": "no"}
+{"question_id": 1692, "image": "ood_0189.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1705, "image": "ood_0152.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1706, "image": "ood_0152.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1707, "image": "ood_0152.jpg", "text": "Is there a Harbor in the image?", "label": "yes"}
+{"question_id": 1708, "image": "ood_0152.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1709, "image": "ood_0152.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1710, "image": "ood_0152.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1723, "image": "ood_0158.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1724, "image": "ood_0158.jpg", "text": "Is there a Expressway toll station in the image?", "label": "yes"}
+{"question_id": 1725, "image": "ood_0158.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1726, "image": "ood_0158.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1727, "image": "ood_0158.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1728, "image": "ood_0158.jpg", "text": "Is there a Stadium in the image?", "label": "no"}
+{"question_id": 1741, "image": "ood_0101.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1742, "image": "ood_0101.jpg", "text": "Is there a Stadium in the image?", "label": "yes"}
+{"question_id": 1743, "image": "ood_0101.jpg", "text": "Is there a Ground track field in the image?", "label": "yes"}
+{"question_id": 1744, "image": "ood_0101.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1745, "image": "ood_0101.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1746, "image": "ood_0101.jpg", "text": "Is there a Bridge in the image?", "label": "no"}
+{"question_id": 1759, "image": "ood_0054.jpg", "text": "Is there a Bridge in the image?", "label": "yes"}
+{"question_id": 1760, "image": "ood_0054.jpg", "text": "Is there a Chimney in the image?", "label": "yes"}
+{"question_id": 1761, "image": "ood_0054.jpg", "text": "Is there a Expressway toll station in the image?", "label": "yes"}
+{"question_id": 1762, "image": "ood_0054.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1763, "image": "ood_0054.jpg", "text": "Is there a Overpass in the image?", "label": "no"}
+{"question_id": 1764, "image": "ood_0054.jpg", "text": "Is there a Vehicle in the image?", "label": "no"}
+{"question_id": 1777, "image": "ood_0181.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1778, "image": "ood_0181.jpg", "text": "Is there a Storage tank in the image?", "label": "yes"}
+{"question_id": 1779, "image": "ood_0181.jpg", "text": "Is there a Ship in the image?", "label": "yes"}
+{"question_id": 1780, "image": "ood_0181.jpg", "text": "Is there a Harbor in the image?", "label": "no"}
+{"question_id": 1781, "image": "ood_0181.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1782, "image": "ood_0181.jpg", "text": "Is there a Baseball field in the image?", "label": "no"}
+{"question_id": 1795, "image": "ood_0018.jpg", "text": "Is there a Overpass in the image?", "label": "yes"}
+{"question_id": 1796, "image": "ood_0018.jpg", "text": "Is there a Expressway service area in the image?", "label": "yes"}
+{"question_id": 1797, "image": "ood_0018.jpg", "text": "Is there a Vehicle in the image?", "label": "yes"}
+{"question_id": 1798, "image": "ood_0018.jpg", "text": "Is there a Tennis court in the image?", "label": "no"}
+{"question_id": 1799, "image": "ood_0018.jpg", "text": "Is there a Ground track field in the image?", "label": "no"}
+{"question_id": 1800, "image": "ood_0018.jpg", "text": "Is there a Ship in the image?", "label": "no"}

@@ -1,0 +1,306 @@
+[orig/egvcd_data/cache/blur_adversarial.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.005%  p99 0.007%  max 0.010%
+  top argmax tokens: 'No'x540(N)  'Yes'x360(Y)
+  OLD (as published): base 75.75  vcd 78.57  gain +2.82  fyr 15.2->24.9  greedy 79.33/78.33
+                                     orig         pope          vcd       strict
+  acc base (smp)              75.75-75.75  75.75-75.75  75.75-75.75  75.75-75.75
+  acc vcd (smp)               78.57-78.57  78.57-78.57  78.57-78.57  78.57-78.57
+  vcd gain (smp)             +2.82..+2.82 +2.82..+2.82 +2.82..+2.82 +2.82..+2.82
+  false-yes base (smp)        15.21-15.21  15.21-15.21  15.21-15.21  15.21-15.21
+  false-yes vcd (smp)         24.89-24.89  24.89-24.89  24.89-24.89  24.89-24.89
+  acc base (greedy)           79.33-79.33  79.33-79.33  79.33-79.33  79.33-79.33
+  acc vcd (greedy)            78.33-78.33  78.33-78.33  78.33-78.33  78.33-78.33
+  EG+ tau0.4: 2nd pass for 35% | retention old 96.5% | strict +96.4..+96.6%  (worst-case mix +96.5..+96.5%)
+  EG+ tau0.5: 2nd pass for 27% | retention old 95.1% | strict +95.1..+95.2%  (worst-case mix +95.1..+95.2%) 
+
+[orig/egvcd_data/cache/blur_popular.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.005%  p99 0.007%  max 0.010%
+  top argmax tokens: 'No'x574(N)  'Yes'x326(Y)
+  OLD (as published): base 79.37  vcd 84.71  gain +5.34  fyr 8.0->12.6  greedy 83.11/84.67
+                                     orig         pope          vcd       strict
+  acc base (smp)              79.37-79.37  79.37-79.37  79.37-79.37  79.37-79.37
+  acc vcd (smp)               84.71-84.71  84.71-84.71  84.71-84.71  84.71-84.71
+  vcd gain (smp)             +5.34..+5.34 +5.34..+5.34 +5.34..+5.35 +5.34..+5.35
+  false-yes base (smp)          7.97-7.97    7.97-7.98    7.97-7.97    7.97-7.97
+  false-yes vcd (smp)         12.61-12.61  12.61-12.61  12.61-12.61  12.61-12.61
+  acc base (greedy)           83.11-83.11  83.11-83.11  83.11-83.11  83.11-83.11
+  acc vcd (greedy)            84.67-84.67  84.67-84.67  84.67-84.67  84.67-84.67
+  EG+ tau0.4: 2nd pass for 28% | retention old 101.3% | strict +101.2..+101.3%  (worst-case mix +101.3..+101.3%)
+  EG+ tau0.5: 2nd pass for 21% | retention old 98.1% | strict +98.1..+98.2%  (worst-case mix +98.1..+98.1%) 
+
+[orig/egvcd_data/cache/blur_random.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.005%  p99 0.007%  max 0.010%
+  top argmax tokens: 'No'x578(N)  'Yes'x322(Y)
+  OLD (as published): base 80.03  vcd 86.62  gain +6.59  fyr 6.7->8.8  greedy 83.56/86.89
+                                     orig         pope          vcd       strict
+  acc base (smp)              80.03-80.03  80.03-80.03  80.03-80.03  80.03-80.03
+  acc vcd (smp)               86.62-86.62  86.62-86.62  86.62-86.62  86.62-86.62
+  vcd gain (smp)             +6.59..+6.59 +6.59..+6.59 +6.59..+6.59 +6.59..+6.59
+  false-yes base (smp)          6.65-6.66    6.66-6.66    6.65-6.65    6.65-6.65
+  false-yes vcd (smp)           8.80-8.80    8.80-8.80    8.80-8.80    8.80-8.80
+  acc base (greedy)           83.56-83.56  83.56-83.56  83.56-83.56  83.56-83.56
+  acc vcd (greedy)            86.89-86.89  86.89-86.89  86.89-86.89  86.89-86.89
+  EG+ tau0.4: 2nd pass for 26% | retention old 94.5% | strict +94.5..+94.5%  (worst-case mix +94.5..+94.5%)
+  EG+ tau0.5: 2nd pass for 20% | retention old 87.1% | strict +87.0..+87.1%  (worst-case mix +87.1..+87.1%) 
+
+[orig/egvcd_data/cache/clean_adversarial.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.007%  max 0.009%
+  top argmax tokens: 'No'x506(N)  'Yes'x394(Y)
+  OLD (as published): base 79.41  vcd 81.41  gain +2.01  fyr 16.2->22.3  greedy 84.89/81.67
+                                     orig         pope          vcd       strict
+  acc base (smp)              79.40-79.41  79.40-79.41  79.40-79.40  79.40-79.40
+  acc vcd (smp)               81.41-81.41  81.41-81.41  81.41-81.41  81.41-81.41
+  vcd gain (smp)             +2.01..+2.01 +2.01..+2.01 +2.01..+2.01 +2.01..+2.01
+  false-yes base (smp)        16.16-16.16  16.16-16.17  16.16-16.16  16.16-16.16
+  false-yes vcd (smp)         22.33-22.33  22.33-22.33  22.33-22.33  22.33-22.33
+  acc base (greedy)           84.89-84.89  84.89-84.89  84.89-84.89  84.89-84.89
+  acc vcd (greedy)            81.67-81.67  81.67-81.67  81.67-81.67  81.67-81.67
+  EG+ tau0.4: 2nd pass for 33% | retention old 80.8% | strict +80.7..+80.9%  (worst-case mix +80.8..+80.8%)
+  EG+ tau0.5: 2nd pass for 25% | retention old 74.7% | strict +74.6..+74.9%  (worst-case mix +74.7..+74.8%) 
+
+[orig/egvcd_data/cache/clean_popular.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.006%  max 0.008%
+  top argmax tokens: 'No'x529(N)  'Yes'x371(Y)
+  OLD (as published): base 82.81  vcd 86.80  gain +3.99  fyr 9.4->11.6  greedy 87.44/87.78
+                                     orig         pope          vcd       strict
+  acc base (smp)              82.81-82.81  82.81-82.81  82.81-82.81  82.81-82.81
+  acc vcd (smp)               86.80-86.80  86.80-86.80  86.80-86.80  86.80-86.80
+  vcd gain (smp)             +3.99..+3.99 +3.99..+3.99 +3.99..+3.99 +3.99..+3.99
+  false-yes base (smp)          9.35-9.36    9.36-9.36    9.35-9.35    9.35-9.35
+  false-yes vcd (smp)         11.55-11.55  11.55-11.55  11.55-11.55  11.55-11.55
+  acc base (greedy)           87.44-87.44  87.44-87.44  87.44-87.44  87.44-87.44
+  acc vcd (greedy)            87.78-87.78  87.78-87.78  87.78-87.78  87.78-87.78
+  EG+ tau0.4: 2nd pass for 24% | retention old 94.4% | strict +94.3..+94.4%  (worst-case mix +94.4..+94.4%)
+  EG+ tau0.5: 2nd pass for 18% | retention old 88.6% | strict +88.6..+88.7%  (worst-case mix +88.6..+88.6%) 
+
+[orig/egvcd_data/cache/clean_random.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.007%  max 0.011%
+  top argmax tokens: 'No'x533(N)  'Yes'x367(Y)
+  OLD (as published): base 83.70  vcd 87.83  gain +4.13  fyr 7.6->9.5  greedy 87.89/88.22
+                                     orig         pope          vcd       strict
+  acc base (smp)              83.70-83.70  83.70-83.70  83.69-83.70  83.69-83.70
+  acc vcd (smp)               87.83-87.83  87.83-87.83  87.83-87.83  87.83-87.83
+  vcd gain (smp)             +4.13..+4.13 +4.13..+4.13 +4.13..+4.14 +4.13..+4.14
+  false-yes base (smp)          7.58-7.58    7.58-7.58    7.58-7.58    7.58-7.58
+  false-yes vcd (smp)           9.49-9.49    9.49-9.49    9.49-9.49    9.49-9.49
+  acc base (greedy)           87.89-87.89  87.89-87.89  87.89-87.89  87.89-87.89
+  acc vcd (greedy)            88.22-88.22  88.22-88.22  88.22-88.22  88.22-88.22
+  EG+ tau0.4: 2nd pass for 24% | retention old 90.1% | strict +90.0..+90.1%  (worst-case mix +90.1..+90.1%)
+  EG+ tau0.5: 2nd pass for 17% | retention old 89.7% | strict +89.7..+89.8%  (worst-case mix +89.7..+89.8%) 
+
+[orig/egvcd_data/cache/lowlight_adversarial.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.005%  p99 0.007%  max 0.010%
+  top argmax tokens: 'No'x519(N)  'Yes'x381(Y)
+  OLD (as published): base 77.45  vcd 78.91  gain +1.47  fyr 16.3->28.4  greedy 81.67/79.78
+                                     orig         pope          vcd       strict
+  acc base (smp)              77.45-77.45  77.45-77.45  77.44-77.45  77.44-77.45
+  acc vcd (smp)               78.91-78.91  78.91-78.91  78.91-78.91  78.91-78.91
+  vcd gain (smp)             +1.47..+1.47 +1.47..+1.47 +1.47..+1.47 +1.47..+1.47
+  false-yes base (smp)        16.35-16.35  16.35-16.35  16.35-16.35  16.35-16.35
+  false-yes vcd (smp)         28.37-28.37  28.37-28.37  28.37-28.37  28.37-28.37
+  acc base (greedy)           81.67-81.67  81.67-81.67  81.67-81.67  81.67-81.67
+  acc vcd (greedy)            79.78-79.78  79.78-79.78  79.78-79.78  79.78-79.78
+  EG+ tau0.4: 2nd pass for 34% | retention old 115.0% | strict +114.8..+115.2%  (worst-case mix +115.0..+115.0%)
+  EG+ tau0.5: 2nd pass for 27% | retention old 131.6% | strict +131.3..+131.7%  (worst-case mix +131.5..+131.5%) 
+
+[orig/egvcd_data/cache/lowlight_popular.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.006%  max 0.010%
+  top argmax tokens: 'No'x549(N)  'Yes'x351(Y)
+  OLD (as published): base 81.14  vcd 85.61  gain +4.48  fyr 9.0->15.0  greedy 85.00/86.11
+                                     orig         pope          vcd       strict
+  acc base (smp)              81.14-81.14  81.14-81.14  81.13-81.14  81.13-81.14
+  acc vcd (smp)               85.61-85.61  85.61-85.61  85.61-85.61  85.61-85.61
+  vcd gain (smp)             +4.48..+4.48 +4.48..+4.48 +4.48..+4.48 +4.48..+4.48
+  false-yes base (smp)          8.97-8.97    8.97-8.97    8.97-8.97    8.97-8.97
+  false-yes vcd (smp)         14.97-14.97  14.97-14.97  14.97-14.97  14.97-14.97
+  acc base (greedy)           85.00-85.00  85.00-85.00  85.00-85.00  85.00-85.00
+  acc vcd (greedy)            86.11-86.11  86.11-86.11  86.11-86.11  86.11-86.11
+  EG+ tau0.4: 2nd pass for 27% | retention old 100.1% | strict +100.0..+100.1%  (worst-case mix +100.1..+100.1%)
+  EG+ tau0.5: 2nd pass for 20% | retention old 103.1% | strict +103.1..+103.2%  (worst-case mix +103.1..+103.1%) 
+
+[orig/egvcd_data/cache/lowlight_random.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.007%  max 0.010%
+  top argmax tokens: 'No'x557(N)  'Yes'x343(Y)
+  OLD (as published): base 82.05  vcd 87.61  gain +5.56  fyr 7.1->11.0  greedy 85.89/88.33
+                                     orig         pope          vcd       strict
+  acc base (smp)              82.05-82.05  82.05-82.05  82.05-82.05  82.05-82.05
+  acc vcd (smp)               87.61-87.61  87.61-87.61  87.61-87.61  87.61-87.61
+  vcd gain (smp)             +5.56..+5.56 +5.56..+5.56 +5.56..+5.56 +5.56..+5.56
+  false-yes base (smp)          7.14-7.14    7.14-7.14    7.14-7.14    7.14-7.14
+  false-yes vcd (smp)         10.98-10.98  10.98-10.98  10.98-10.98  10.98-10.98
+  acc base (greedy)           85.89-85.89  85.89-85.89  85.89-85.89  85.89-85.89
+  acc vcd (greedy)            88.33-88.33  88.33-88.33  88.33-88.33  88.33-88.33
+  EG+ tau0.4: 2nd pass for 25% | retention old 93.7% | strict +93.7..+93.8%  (worst-case mix +93.7..+93.7%)
+  EG+ tau0.5: 2nd pass for 19% | retention old 88.5% | strict +88.5..+88.5%  (worst-case mix +88.5..+88.5%) 
+
+[orig/egvcd_data/cache/noise_adversarial.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.005%  p99 0.007%  max 0.009%
+  top argmax tokens: 'No'x521(N)  'Yes'x379(Y)
+  OLD (as published): base 78.37  vcd 80.23  gain +1.86  fyr 15.7->22.5  greedy 83.44/80.78
+                                     orig         pope          vcd       strict
+  acc base (smp)              78.37-78.37  78.37-78.37  78.37-78.37  78.37-78.37
+  acc vcd (smp)               80.23-80.23  80.23-80.23  80.23-80.23  80.23-80.23
+  vcd gain (smp)             +1.86..+1.86 +1.86..+1.86 +1.86..+1.87 +1.86..+1.87
+  false-yes base (smp)        15.74-15.75  15.75-15.75  15.74-15.74  15.74-15.74
+  false-yes vcd (smp)         22.50-22.50  22.50-22.50  22.50-22.50  22.50-22.50
+  acc base (greedy)           83.44-83.44  83.44-83.44  83.44-83.44  83.44-83.44
+  acc vcd (greedy)            80.78-80.78  80.78-80.78  80.78-80.78  80.78-80.78
+  EG+ tau0.4: 2nd pass for 34% | retention old 93.9% | strict +93.8..+94.0%  (worst-case mix +93.9..+93.9%)
+  EG+ tau0.5: 2nd pass for 25% | retention old 108.6% | strict +108.4..+108.7%  (worst-case mix +108.6..+108.6%) 
+
+[orig/egvcd_data/cache/noise_popular.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.006%  max 0.009%
+  top argmax tokens: 'No'x542(N)  'Yes'x358(Y)
+  OLD (as published): base 81.84  vcd 85.74  gain +3.90  fyr 8.8->11.5  greedy 85.78/85.89
+                                     orig         pope          vcd       strict
+  acc base (smp)              81.84-81.84  81.84-81.84  81.83-81.84  81.83-81.84
+  acc vcd (smp)               85.74-85.74  85.74-85.74  85.74-85.74  85.74-85.74
+  vcd gain (smp)             +3.90..+3.91 +3.90..+3.91 +3.91..+3.91 +3.91..+3.91
+  false-yes base (smp)          8.81-8.81    8.81-8.81    8.81-8.81    8.81-8.81
+  false-yes vcd (smp)         11.48-11.48  11.48-11.48  11.48-11.48  11.48-11.48
+  acc base (greedy)           85.78-85.78  85.78-85.78  85.78-85.78  85.78-85.78
+  acc vcd (greedy)            85.89-85.89  85.89-85.89  85.89-85.89  85.89-85.89
+  EG+ tau0.4: 2nd pass for 26% | retention old 97.5% | strict +97.5..+97.6%  (worst-case mix +97.5..+97.5%)
+  EG+ tau0.5: 2nd pass for 18% | retention old 103.6% | strict +103.6..+103.7%  (worst-case mix +103.6..+103.6%) 
+
+[orig/egvcd_data/cache/noise_random.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.007%  max 0.009%
+  top argmax tokens: 'No'x548(N)  'Yes'x352(Y)
+  OLD (as published): base 82.64  vcd 87.34  gain +4.70  fyr 7.2->8.3  greedy 86.44/88.11
+                                     orig         pope          vcd       strict
+  acc base (smp)              82.64-82.64  82.64-82.64  82.64-82.64  82.64-82.64
+  acc vcd (smp)               87.34-87.34  87.34-87.34  87.34-87.34  87.34-87.34
+  vcd gain (smp)             +4.70..+4.70 +4.70..+4.70 +4.70..+4.70 +4.70..+4.70
+  false-yes base (smp)          7.21-7.21    7.21-7.21    7.21-7.21    7.21-7.21
+  false-yes vcd (smp)           8.29-8.29    8.29-8.29    8.29-8.29    8.29-8.29
+  acc base (greedy)           86.44-86.44  86.44-86.44  86.44-86.44  86.44-86.44
+  acc vcd (greedy)            88.11-88.11  88.11-88.11  88.11-88.11  88.11-88.11
+  EG+ tau0.4: 2nd pass for 24% | retention old 97.1% | strict +97.1..+97.2%  (worst-case mix +97.1..+97.1%)
+  EG+ tau0.5: 2nd pass for 18% | retention old 88.6% | strict +88.6..+88.6%  (worst-case mix +88.6..+88.6%) 
+
+[solid/egvcd_data/cache/clean_adversarial_ext.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.007%  max 0.009%
+  top argmax tokens: 'No'x511(N)  'Yes'x389(Y)
+  OLD (as published): base 76.87  vcd 78.62  gain +1.74  fyr 16.9->24.3  greedy 82.11/78.89
+                                     orig         pope          vcd       strict
+  acc base (smp)              76.87-76.88  76.87-76.88  76.87-76.87  76.87-76.87
+  acc vcd (smp)               78.62-78.62  78.62-78.62  78.62-78.62  78.62-78.62
+  vcd gain (smp)             +1.74..+1.75 +1.74..+1.75 +1.74..+1.75 +1.74..+1.75
+  false-yes base (smp)        16.91-16.91  16.91-16.92  16.91-16.91  16.91-16.91
+  false-yes vcd (smp)         24.31-24.31  24.31-24.31  24.31-24.31  24.31-24.31
+  acc base (greedy)           82.11-82.11  82.11-82.11  82.11-82.11  82.11-82.11
+  acc vcd (greedy)            78.89-78.89  78.89-78.89  78.89-78.89  78.89-78.89
+  EG+ tau0.4: 2nd pass for 33% | retention old 93.0% | strict +92.9..+93.1%  (worst-case mix +93.0..+93.0%)
+  EG+ tau0.5: 2nd pass for 25% | retention old 89.4% | strict +89.3..+89.6%  (worst-case mix +89.4..+89.4%) 
+
+[solid/egvcd_data/cache/clean_popular_ext.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.006%  max 0.009%
+  top argmax tokens: 'No'x535(N)  'Yes'x365(Y)
+  OLD (as published): base 79.86  vcd 83.19  gain +3.34  fyr 11.0->15.2  greedy 84.78/83.78
+                                     orig         pope          vcd       strict
+  acc base (smp)              79.85-79.86  79.85-79.86  79.85-79.85  79.85-79.85
+  acc vcd (smp)               83.19-83.19  83.19-83.19  83.19-83.19  83.19-83.19
+  vcd gain (smp)             +3.34..+3.34 +3.34..+3.34 +3.34..+3.34 +3.34..+3.34
+  false-yes base (smp)        10.95-10.95  10.95-10.95  10.95-10.95  10.95-10.95
+  false-yes vcd (smp)         15.16-15.16  15.16-15.16  15.16-15.16  15.16-15.16
+  acc base (greedy)           84.78-84.78  84.78-84.78  84.78-84.78  84.78-84.78
+  acc vcd (greedy)            83.78-83.78  83.78-83.78  83.78-83.78  83.78-83.78
+  EG+ tau0.4: 2nd pass for 28% | retention old 93.5% | strict +93.4..+93.6%  (worst-case mix +93.5..+93.5%)
+  EG+ tau0.5: 2nd pass for 21% | retention old 90.1% | strict +90.1..+90.2%  (worst-case mix +90.1..+90.1%) 
+
+[solid/egvcd_data/cache/clean_random_ext.npz]  n=900  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/900 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.002%  p90 0.004%  p99 0.007%  max 0.009%
+  top argmax tokens: 'No'x550(N)  'Yes'x350(Y)
+  OLD (as published): base 81.75  vcd 86.13  gain +4.38  fyr 7.2->9.3  greedy 86.44/87.22
+                                     orig         pope          vcd       strict
+  acc base (smp)              81.75-81.76  81.75-81.75  81.75-81.75  81.75-81.75
+  acc vcd (smp)               86.13-86.13  86.13-86.13  86.13-86.13  86.13-86.13
+  vcd gain (smp)             +4.38..+4.38 +4.38..+4.38 +4.38..+4.38 +4.38..+4.38
+  false-yes base (smp)          7.15-7.15    7.15-7.16    7.15-7.15    7.15-7.15
+  false-yes vcd (smp)           9.28-9.28    9.28-9.28    9.28-9.28    9.28-9.28
+  acc base (greedy)           86.44-86.44  86.44-86.44  86.44-86.44  86.44-86.44
+  acc vcd (greedy)            87.22-87.22  87.22-87.22  87.22-87.22  87.22-87.22
+  EG+ tau0.4: 2nd pass for 25% | retention old 97.5% | strict +97.5..+97.6%  (worst-case mix +97.5..+97.5%)
+  EG+ tau0.5: 2nd pass for 18% | retention old 91.1% | strict +91.0..+91.1%  (worst-case mix +91.1..+91.1%) 
+
+[solid/egvcd_data/cache_13b/clean_adversarial.npz]  n=600  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/600 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.003%  p90 0.007%  p99 0.012%  max 0.020%
+  top argmax tokens: 'No'x353(N)  'Yes'x247(Y)
+  OLD (as published): base 80.93  vcd 83.72  gain +2.79  fyr 12.8->13.0  greedy 84.83/85.50
+                                     orig         pope          vcd       strict
+  acc base (smp)              80.93-80.93  80.93-80.93  80.93-80.93  80.93-80.93
+  acc vcd (smp)               83.72-83.72  83.72-83.72  83.72-83.72  83.72-83.72
+  vcd gain (smp)             +2.79..+2.80 +2.79..+2.80 +2.79..+2.80 +2.79..+2.80
+  false-yes base (smp)        12.77-12.77  12.77-12.77  12.77-12.77  12.77-12.77
+  false-yes vcd (smp)         13.01-13.01  13.01-13.01  13.01-13.01  13.01-13.01
+  acc base (greedy)           84.83-84.83  84.83-84.83  84.83-84.83  84.83-84.83
+  acc vcd (greedy)            85.50-85.50  85.50-85.50  85.50-85.50  85.50-85.50
+  EG+ tau0.4: 2nd pass for 28% | retention old 92.2% | strict +92.0..+92.3%  (worst-case mix +92.2..+92.2%)
+  EG+ tau0.5: 2nd pass for 21% | retention old 84.9% | strict +84.8..+85.0%  (worst-case mix +84.9..+84.9%) 
+
+[solid/egvcd_data/cache_13b/clean_popular.npz]  n=600  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/600 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.003%  p90 0.007%  p99 0.012%  max 0.020%
+  top argmax tokens: 'No'x363(N)  'Yes'x237(Y)
+  OLD (as published): base 83.29  vcd 86.65  gain +3.36  fyr 8.0->7.2  greedy 86.50/88.00
+                                     orig         pope          vcd       strict
+  acc base (smp)              83.29-83.30  83.29-83.29  83.29-83.29  83.29-83.29
+  acc vcd (smp)               86.65-86.65  86.65-86.65  86.65-86.65  86.65-86.65
+  vcd gain (smp)             +3.36..+3.36 +3.36..+3.36 +3.36..+3.36 +3.36..+3.36
+  false-yes base (smp)          8.04-8.04    8.04-8.04    8.04-8.04    8.04-8.04
+  false-yes vcd (smp)           7.15-7.15    7.15-7.15    7.15-7.15    7.15-7.15
+  acc base (greedy)           86.50-86.50  86.50-86.50  86.50-86.50  86.50-86.50
+  acc vcd (greedy)            88.00-88.00  88.00-88.00  88.00-88.00  88.00-88.00
+  EG+ tau0.4: 2nd pass for 23% | retention old 97.3% | strict +97.2..+97.4%  (worst-case mix +97.3..+97.3%)
+  EG+ tau0.5: 2nd pass for 17% | retention old 86.0% | strict +85.9..+86.1%  (worst-case mix +86.0..+86.0%) 
+
+[solid/egvcd_data/cache_13b/clean_random.npz]  n=600  (yes-labels 50.0%)  alpha=1.0 beta=0.1
+  junk argmax (strict): 0/600 = 0.00%  [yes-lab 0 / no-lab 0]   argmax-parser disagreements vs orig: {'pope': 0, 'vcd': 0, 'strict': 0}
+  E[junk|sampled]: base-head 0.00% (+tail) | APC 0.00% | VCD 0.00%
+  tail mass beyond top-32:  p50 0.003%  p90 0.007%  p99 0.013%  max 0.021%
+  top argmax tokens: 'No'x365(N)  'Yes'x235(Y)
+  OLD (as published): base 83.64  vcd 86.99  gain +3.35  fyr 7.4->6.5  greedy 86.83/88.67
+                                     orig         pope          vcd       strict
+  acc base (smp)              83.63-83.64  83.63-83.64  83.63-83.64  83.63-83.64
+  acc vcd (smp)               86.99-86.99  86.99-86.99  86.99-86.99  86.99-86.99
+  vcd gain (smp)             +3.35..+3.35 +3.35..+3.35 +3.35..+3.35 +3.35..+3.35
+  false-yes base (smp)          7.35-7.36    7.35-7.36    7.35-7.35    7.35-7.35
+  false-yes vcd (smp)           6.48-6.48    6.48-6.48    6.48-6.48    6.48-6.48
+  acc base (greedy)           86.83-86.83  86.83-86.83  86.83-86.83  86.83-86.83
+  acc vcd (greedy)            88.67-88.67  88.67-88.67  88.67-88.67  88.67-88.67
+  EG+ tau0.4: 2nd pass for 23% | retention old 94.3% | strict +94.2..+94.4%  (worst-case mix +94.3..+94.3%)
+  EG+ tau0.5: 2nd pass for 17% | retention old 93.7% | strict +93.6..+93.8%  (worst-case mix +93.7..+93.7%) 
+
