@@ -1,0 +1,316 @@
+[12:23:07 | +  0.0 min] STEP 0  checking GPUs
+GPU 0: Tesla T4 (UUID: GPU-5d19a112-c496-b989-d9e3-449af7e6804d)
+GPU 1: Tesla T4 (UUID: GPU-55276e23-3d72-564a-4025-8c615ecbd927)
+
+
+[12:23:07 | +  0.0 min] STEP 0  installing libraries (1-2 min)
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+ydata-profiling 4.18.4 requires scipy<1.17,>=1.8, but you have scipy 1.18.1 which is incompatible.
+datasets 4.8.5 requires huggingface-hub<2.0,>=0.25.0, but you have huggingface-hub 2.4.0 which is incompatible.
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+found original caches in /kaggle/input/datasets/abdullahbinzahid/egvcd-zip/egvcd/results/cache: copied 12 files
+
+[12:23:41 | +  0.6 min] STEP 1  data: original 150 images + 150 NEW images (~4 min)
+random 900 questions
+popular 900 questions
+adversarial 900 questions
+images: 150
+random ext questions: 900
+popular ext questions: 900
+adversarial ext questions: 900
+images on disk: 300
+
+[12:24:57 | +  1.8 min] STEP 1  downloading llava-1.5-7b-hf (~14 GB, no progress bar)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+7B at /root/.cache/huggingface/hub/models--llava-hf--llava-1.5-7b-hf/snapshots/b234b804b114d9e37bb655e11cbbb5f5e971b7a9
+
+[12:26:04 | +  2.9 min] STEP 1  starting 13B download in the background (~26 GB, runs while Stage A uses the GPUs)
+
+[12:26:04 | +  2.9 min] STAGE A  GPU0: smoke test -> end-to-end verification + measured latency (~40 min)   GPU1: caching 150 NEW images (~1 h)
+
+[12:26:04 | +  2.9 min] [GPU0] started job 'e2e --n 6 --smoke' on GPU 0
+
+[12:27:06 | +  4.0 min] [GPU1] started job 'cache2 --cond clean --suffix _ext --outdir cache' on GPU 1
+[GPU0|e2e] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[GPU1|cache2:_ext] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[GPU0|e2e] e2e on 18 questions (stride 150)
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 0/900  11s
+[GPU0|e2e] base    greedy  {'ms_mean': 437.12398216669294, 'ms_std': 4.724816189801854, 'passes': 1.0, 'acc': 100.0, 'n': 18}
+[GPU0|e2e] base    sample  {'ms_mean': 443.1513120555337, 'ms_std': 2.2556680842375236, 'passes': 1.0, 'acc': 83.33333333333334, 'n': 18}
+[GPU0|e2e] vcd     greedy  {'ms_mean': 905.5770797222256, 'ms_std': 7.3186020355417725, 'passes': 2.0, 'acc': 100.0, 'n': 18}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 50/900  56s
+[GPU0|e2e] vcd     sample  {'ms_mean': 942.3308201111114, 'ms_std': 11.384845717761195, 'passes': 2.0, 'acc': 100.0, 'n': 18}
+[GPU0|e2e] e_vcd   greedy  {'ms_mean': 728.318234666675, 'ms_std': 242.0809356187889, 'passes': 1.5, 'acc': 100.0, 'n': 18}
+[GPU0|e2e] e_vcd   sample  {'ms_mean': 753.7231745000099, 'ms_std': 249.69510045035156, 'passes': 1.5, 'acc': 100.0, 'n': 18}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 100/900  107s
+[GPU0|e2e] eg+_0.4 greedy  {'ms_mean': 783.4438373333292, 'ms_std': 258.8405319376274, 'passes': 1.5, 'acc': 100.0, 'n': 18}
+[GPU0|e2e] eg+_0.5 greedy  {'ms_mean': 705.5775752222075, 'ms_std': 250.66109430951786, 'passes': 1.3333333333333333, 'acc': 100.0, 'n': 18}
+[GPU0|e2e] eg+_0.5 sample  {'ms_mean': 686.5210006666807, 'ms_std': 243.76427847245677, 'passes': 1.3333333333333333, 'acc': 100.0, 'n': 18}
+[GPU0|e2e] OUTPUT MISMATCHES  VCD vs exact-gated VCD (greedy): 0 / 18
+[GPU0|e2e] OUTPUT MISMATCHES  VCD vs exact-gated VCD (sample): 0 / 18
+
+[12:31:59 | +  8.9 min] [GPU0] finished 'e2e'
+
+[12:31:59 | +  8.9 min] [GPU0] started job 'e2e --n 100' on GPU 0
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 150/900  160s
+[GPU0|e2e] e2e on 300 questions (stride 9)
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 200/900  212s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 250/900  265s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 300/900  318s
+[GPU0|e2e] base    greedy  {'ms_mean': 493.29184453999915, 'ms_std': 6.035622768501266, 'passes': 1.0, 'acc': 86.66666666666667, 'n': 300}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 350/900  370s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 400/900  423s
+[GPU0|e2e] base    sample  {'ms_mean': 503.7103029733347, 'ms_std': 2.8816994674960936, 'passes': 1.0, 'acc': 82.33333333333334, 'n': 300}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 450/900  476s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 500/900  528s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 550/900  581s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 600/900  633s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 650/900  686s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 700/900  739s
+[GPU0|e2e] vcd     greedy  {'ms_mean': 1009.353162179995, 'ms_std': 3.466975303507943, 'passes': 2.0, 'acc': 85.33333333333334, 'n': 300}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 750/900  791s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 800/900  844s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/random_ext 850/900  897s
+[GPU1|cache2:_ext] saved /kaggle/working/egvcd_data/cache/clean_random_ext.npz
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 0/900  1s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 50/900  54s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 100/900  106s
+[GPU0|e2e] vcd     sample  {'ms_mean': 1009.4996178033323, 'ms_std': 3.7700267858018846, 'passes': 2.0, 'acc': 87.66666666666667, 'n': 300}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 150/900  159s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 200/900  212s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 250/900  264s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 300/900  317s
+[GPU0|e2e] e_vcd   greedy  {'ms_mean': 711.7391269800025, 'ms_std': 248.22855567261374, 'passes': 1.41, 'acc': 85.33333333333334, 'n': 300}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 350/900  369s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 400/900  422s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 450/900  475s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 500/900  528s
+[GPU0|e2e] e_vcd   sample  {'ms_mean': 712.5150580566741, 'ms_std': 248.73302591912724, 'passes': 1.41, 'acc': 87.66666666666667, 'n': 300}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 550/900  580s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 600/900  633s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 650/900  686s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 700/900  739s
+[GPU0|e2e] eg+_0.4 greedy  {'ms_mean': 658.1568946366693, 'ms_std': 231.98200360492663, 'passes': 1.3, 'acc': 85.33333333333334, 'n': 300}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 750/900  791s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 800/900  844s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/popular_ext 850/900  896s
+[GPU1|cache2:_ext] saved /kaggle/working/egvcd_data/cache/clean_popular_ext.npz
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 0/900  1s
+[GPU0|e2e] eg+_0.5 greedy  {'ms_mean': 619.4571710466668, 'ms_std': 211.65052377673624, 'passes': 1.2266666666666666, 'acc': 85.66666666666667, 'n': 300}
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 50/900  54s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 100/900  107s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 150/900  160s
+[GPU0|e2e] eg+_0.5 sample  {'ms_mean': 619.8199918733372, 'ms_std': 211.998941744624, 'passes': 1.2266666666666666, 'acc': 84.66666666666667, 'n': 300}
+[GPU0|e2e] OUTPUT MISMATCHES  VCD vs exact-gated VCD (greedy): 0 / 300
+[GPU0|e2e] OUTPUT MISMATCHES  VCD vs exact-gated VCD (sample): 0 / 300
+
+[13:04:17 | + 41.2 min] [GPU0] finished 'e2e'
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 200/900  212s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 250/900  265s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 300/900  318s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 350/900  370s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 400/900  423s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 450/900  475s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 500/900  528s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 550/900  581s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 600/900  633s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 650/900  686s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 700/900  739s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 750/900  791s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 800/900  844s
+[GPU1|cache2:_ext] llava-1.5-7b-hf|clean/adversarial_ext 850/900  897s
+[GPU1|cache2:_ext] saved /kaggle/working/egvcd_data/cache/clean_adversarial_ext.npz
+
+[13:16:49 | + 53.7 min] [GPU1] finished 'cache2:_ext'
+
+[13:16:49 | + 53.7 min] STAGE A  analysis (CPU)
+=== A. REPLICATION: clean images, image-clustered 95% CIs (thresholds tau=0.4/0.5 fixed beforehand)
+
+D1: 150 images (original, 7B)   [2700 questions, 150 images]
+  exact gate: second pass needed for 36.1% of questions (63.9% skippable); max|p_E-VCD - p_VCD| = 0.0e+00; greedy identical: True
+  accuracy (expected, sampled): base 81.97 | APC-only 83.64 | VCD 85.35
+  VCD gain sampled +3.38 [+2.52,+4.34] | APC-only gain +1.67 | greedy gain -0.85 [-2.37,+0.81]
+  false-yes rate (sample): base 11.0% -> VCD 14.5%  (diff +3.4 [+2.4,+4.5])
+  false-yes rate (greedy): base 5.2% -> VCD 14.2%  (diff +9.0 [+7.3,+10.9])
+  EG+ tau=0.4: second pass for 27% | keeps 89.9% of VCD gain | excess over random gating +0.63 [+0.56,+0.70]
+  EG+ tau=0.5: second pass for 20% | keeps 86.3% of VCD gain | excess over random gating +0.66 [+0.56,+0.75]
+
+D2: 150 NEW images (held-out, 7B)   [2700 questions, 150 images]
+  exact gate: second pass needed for 37.6% of questions (62.4% skippable); max|p_E-VCD - p_VCD| = 0.0e+00; greedy identical: True
+  accuracy (expected, sampled): base 79.50 | APC-only 80.97 | VCD 82.65
+  VCD gain sampled +3.15 [+2.36,+3.94] | APC-only gain +1.48 | greedy gain -1.15 [-2.67,+0.41]
+  false-yes rate (sample): base 11.7% -> VCD 16.3%  (diff +4.6 [+3.5,+5.7])
+  false-yes rate (greedy): base 6.4% -> VCD 16.1%  (diff +9.6 [+7.8,+11.7])
+  EG+ tau=0.4: second pass for 29% | keeps 95.3% of VCD gain | excess over random gating +0.66 [+0.61,+0.72]
+  EG+ tau=0.5: second pass for 21% | keeps 90.4% of VCD gain | excess over random gating +0.69 [+0.57,+0.81]
+D3: 100 images, LLaVA-1.5-13B: not available
+
+=== B. ROBUSTNESS to VCD hyper-parameters (D1, offline): exactness must hold for every alpha, beta
+cond      alpha beta | skippable% | max|dp| | VCD acc sampled / greedy | base acc sampled / greedy | VCD false-yes sampled
+clean      0.5  0.05 |      49.6 | 0e+00 | 84.65 / 87.00 | 81.97 / 86.74 | 13.2
+clean      0.5   0.1 |      63.9 | 0e+00 | 85.16 / 87.00 | 81.97 / 86.74 | 12.1
+clean      0.5   0.2 |      76.9 | 0e+00 | 85.70 / 87.00 | 81.97 / 86.74 | 10.9
+clean      0.5   0.5 |      89.6 | 0e+00 | 86.27 / 86.74 | 81.97 / 86.74 | 8.4
+clean      1.0  0.05 |      49.6 | 0e+00 | 84.73 / 85.89 | 81.97 / 86.74 | 15.8
+clean      1.0   0.1 |      63.9 | 0e+00 | 85.35 / 85.89 | 81.97 / 86.74 | 14.5
+clean      1.0   0.2 |      76.9 | 0e+00 | 85.92 / 86.15 | 81.97 / 86.74 | 12.7
+clean      1.0   0.5 |      89.6 | 0e+00 | 86.44 / 86.56 | 81.97 / 86.74 | 9.3
+clean      2.0  0.05 |      49.6 | 0e+00 | 84.05 / 84.93 | 81.97 / 86.74 | 19.2
+clean      2.0   0.1 |      63.9 | 0e+00 | 85.14 / 85.63 | 81.97 / 86.74 | 16.9
+clean      2.0   0.2 |      76.9 | 0e+00 | 85.93 / 86.30 | 81.97 / 86.74 | 14.2
+clean      2.0   0.5 |      89.6 | 0e+00 | 86.59 / 86.67 | 81.97 / 86.74 | 9.7
+blur       0.5  0.05 |      48.9 | 0e+00 | 82.23 / 83.67 | 78.38 / 82.00 | 13.3
+blur       0.5   0.1 |      62.3 | 0e+00 | 82.61 / 83.67 | 78.38 / 82.00 | 12.3
+blur       0.5   0.2 |      74.1 | 0e+00 | 83.03 / 83.67 | 78.38 / 82.00 | 10.6
+blur       0.5   0.5 |      88.8 | 0e+00 | 83.16 / 83.78 | 78.38 / 82.00 | 7.6
+blur       1.0  0.05 |      48.9 | 0e+00 | 82.81 / 83.30 | 78.38 / 82.00 | 16.9
+blur       1.0   0.1 |      62.3 | 0e+00 | 83.30 / 83.30 | 78.38 / 82.00 | 15.4
+blur       1.0   0.2 |      74.1 | 0e+00 | 83.82 / 83.70 | 78.38 / 82.00 | 12.8
+blur       1.0   0.5 |      88.8 | 0e+00 | 83.67 / 83.74 | 78.38 / 82.00 | 8.5
+blur       2.0  0.05 |      48.9 | 0e+00 | 82.36 / 82.70 | 78.38 / 82.00 | 21.6
+blur       2.0   0.1 |      62.3 | 0e+00 | 83.30 / 83.48 | 78.38 / 82.00 | 18.8
+blur       2.0   0.2 |      74.1 | 0e+00 | 84.14 / 84.33 | 78.38 / 82.00 | 14.4
+blur       2.0   0.5 |      88.8 | 0e+00 | 83.78 / 83.74 | 78.38 / 82.00 | 8.9
+max |p_E-VCD - p_VCD| over all 48 (condition, alpha, beta) settings: 0.0e+00
+
+=== C. REAL END-TO-END RUN (LLaVA-1.5-7B, same noise seeds and sampling randomness, measured latency)
+method    mode     latency ms (mean±sd)  passes  accuracy% (n)
+base      greedy       493 ±    6        1.00    86.7 (300)
+base      sample       504 ±    3        1.00    82.3 (300)
+vcd       greedy      1009 ±    3        2.00    85.3 (300)
+vcd       sample      1009 ±    4        2.00    87.7 (300)
+e_vcd     greedy       712 ±  248        1.41    85.3 (300)
+e_vcd     sample       713 ±  249        1.41    87.7 (300)
+eg+_0.4   greedy       658 ±  232        1.30    85.3 (300)
+eg+_0.5   greedy       619 ±  212        1.23    85.7 (300)
+eg+_0.5   sample       620 ±  212        1.23    84.7 (300)
+output mismatches, VCD vs exact-gated VCD (greedy): 0 of 300
+output mismatches, VCD vs exact-gated VCD (sample): 0 of 300
+MEASURED latency saving of the exact gate vs VCD (greedy run): 29.5%  (base = 493 ms, VCD = 1009 ms, exact gate = 712 ms)
+
+wrote solid_numbers.json and solid_report.txt
+
+[13:16:50 | + 53.7 min] STAGE A DONE. Results so far are in solid_report.txt. You can copy the report above and stop here if time is short.
+
+[13:16:50 | + 53.7 min] STAGE B  waiting for the 13B download to finish ...
+
+[13:16:50 | + 53.7 min] STAGE B  LLaVA-1.5-13B, 100 images, clean, weights split across both T4s (~1-1.5 h; progress every 50 questions)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+llava-1.5-13b-hf|clean/random 0/600  3s
+llava-1.5-13b-hf|clean/random 50/600  95s
+llava-1.5-13b-hf|clean/random 100/600  189s
+llava-1.5-13b-hf|clean/random 150/600  285s
+llava-1.5-13b-hf|clean/random 200/600  381s
+llava-1.5-13b-hf|clean/random 250/600  477s
+llava-1.5-13b-hf|clean/random 300/600  574s
+llava-1.5-13b-hf|clean/random 350/600  670s
+llava-1.5-13b-hf|clean/random 400/600  767s
+llava-1.5-13b-hf|clean/random 450/600  863s
+llava-1.5-13b-hf|clean/random 500/600  960s
+llava-1.5-13b-hf|clean/random 550/600  1057s
+saved /kaggle/working/egvcd_data/cache_13b/clean_random.npz
+llava-1.5-13b-hf|clean/popular 0/600  2s
+llava-1.5-13b-hf|clean/popular 50/600  99s
+llava-1.5-13b-hf|clean/popular 100/600  196s
+llava-1.5-13b-hf|clean/popular 150/600  292s
+llava-1.5-13b-hf|clean/popular 200/600  389s
+llava-1.5-13b-hf|clean/popular 250/600  486s
+llava-1.5-13b-hf|clean/popular 300/600  582s
+llava-1.5-13b-hf|clean/popular 350/600  679s
+llava-1.5-13b-hf|clean/popular 400/600  776s
+llava-1.5-13b-hf|clean/popular 450/600  873s
+llava-1.5-13b-hf|clean/popular 500/600  970s
+llava-1.5-13b-hf|clean/popular 550/600  1067s
+saved /kaggle/working/egvcd_data/cache_13b/clean_popular.npz
+llava-1.5-13b-hf|clean/adversarial 0/600  2s
+llava-1.5-13b-hf|clean/adversarial 50/600  99s
+llava-1.5-13b-hf|clean/adversarial 100/600  195s
+llava-1.5-13b-hf|clean/adversarial 150/600  292s
+llava-1.5-13b-hf|clean/adversarial 200/600  389s
+llava-1.5-13b-hf|clean/adversarial 250/600  486s
+llava-1.5-13b-hf|clean/adversarial 300/600  583s
+llava-1.5-13b-hf|clean/adversarial 350/600  679s
+llava-1.5-13b-hf|clean/adversarial 400/600  776s
+llava-1.5-13b-hf|clean/adversarial 450/600  873s
+llava-1.5-13b-hf|clean/adversarial 500/600  970s
+llava-1.5-13b-hf|clean/adversarial 550/600  1067s
+saved /kaggle/working/egvcd_data/cache_13b/clean_adversarial.npz
+
+[14:16:41 | +113.6 min] STAGE B  final analysis (CPU)
+=== A. REPLICATION: clean images, image-clustered 95% CIs (thresholds tau=0.4/0.5 fixed beforehand)
+
+D1: 150 images (original, 7B)   [2700 questions, 150 images]
+  exact gate: second pass needed for 36.1% of questions (63.9% skippable); max|p_E-VCD - p_VCD| = 0.0e+00; greedy identical: True
+  accuracy (expected, sampled): base 81.97 | APC-only 83.64 | VCD 85.35
+  VCD gain sampled +3.38 [+2.52,+4.34] | APC-only gain +1.67 | greedy gain -0.85 [-2.37,+0.81]
+  false-yes rate (sample): base 11.0% -> VCD 14.5%  (diff +3.4 [+2.4,+4.5])
+  false-yes rate (greedy): base 5.2% -> VCD 14.2%  (diff +9.0 [+7.3,+10.9])
+  EG+ tau=0.4: second pass for 27% | keeps 89.9% of VCD gain | excess over random gating +0.63 [+0.56,+0.70]
+  EG+ tau=0.5: second pass for 20% | keeps 86.3% of VCD gain | excess over random gating +0.66 [+0.56,+0.75]
+
+D2: 150 NEW images (held-out, 7B)   [2700 questions, 150 images]
+  exact gate: second pass needed for 37.6% of questions (62.4% skippable); max|p_E-VCD - p_VCD| = 0.0e+00; greedy identical: True
+  accuracy (expected, sampled): base 79.50 | APC-only 80.97 | VCD 82.65
+  VCD gain sampled +3.15 [+2.36,+3.94] | APC-only gain +1.48 | greedy gain -1.15 [-2.67,+0.41]
+  false-yes rate (sample): base 11.7% -> VCD 16.3%  (diff +4.6 [+3.5,+5.7])
+  false-yes rate (greedy): base 6.4% -> VCD 16.1%  (diff +9.6 [+7.8,+11.7])
+  EG+ tau=0.4: second pass for 29% | keeps 95.3% of VCD gain | excess over random gating +0.66 [+0.61,+0.72]
+  EG+ tau=0.5: second pass for 21% | keeps 90.4% of VCD gain | excess over random gating +0.69 [+0.57,+0.81]
+
+D3: 100 images, LLaVA-1.5-13B   [1800 questions, 100 images]
+  exact gate: second pass needed for 33.4% of questions (66.6% skippable); max|p_E-VCD - p_VCD| = 0.0e+00; greedy identical: True
+  accuracy (expected, sampled): base 82.62 | APC-only 84.13 | VCD 85.79
+  VCD gain sampled +3.17 [+2.41,+3.87] | APC-only gain +1.51 | greedy gain +1.33 [-0.33,+3.06]
+  false-yes rate (sample): base 9.4% -> VCD 8.9%  (diff -0.5 [-1.2,+0.2])
+  false-yes rate (greedy): base 3.9% -> VCD 7.2%  (diff +3.3 [+2.1,+4.7])
+  EG+ tau=0.4: second pass for 25% | keeps 94.7% of VCD gain | excess over random gating +0.70 [+0.62,+0.78]
+  EG+ tau=0.5: second pass for 18% | keeps 88.4% of VCD gain | excess over random gating +0.70 [+0.60,+0.81]
+
+=== B. ROBUSTNESS to VCD hyper-parameters (D1, offline): exactness must hold for every alpha, beta
+cond      alpha beta | skippable% | max|dp| | VCD acc sampled / greedy | base acc sampled / greedy | VCD false-yes sampled
+clean      0.5  0.05 |      49.6 | 0e+00 | 84.65 / 87.00 | 81.97 / 86.74 | 13.2
+clean      0.5   0.1 |      63.9 | 0e+00 | 85.16 / 87.00 | 81.97 / 86.74 | 12.1
+clean      0.5   0.2 |      76.9 | 0e+00 | 85.70 / 87.00 | 81.97 / 86.74 | 10.9
+clean      0.5   0.5 |      89.6 | 0e+00 | 86.27 / 86.74 | 81.97 / 86.74 | 8.4
+clean      1.0  0.05 |      49.6 | 0e+00 | 84.73 / 85.89 | 81.97 / 86.74 | 15.8
+clean      1.0   0.1 |      63.9 | 0e+00 | 85.35 / 85.89 | 81.97 / 86.74 | 14.5
+clean      1.0   0.2 |      76.9 | 0e+00 | 85.92 / 86.15 | 81.97 / 86.74 | 12.7
+clean      1.0   0.5 |      89.6 | 0e+00 | 86.44 / 86.56 | 81.97 / 86.74 | 9.3
+clean      2.0  0.05 |      49.6 | 0e+00 | 84.05 / 84.93 | 81.97 / 86.74 | 19.2
+clean      2.0   0.1 |      63.9 | 0e+00 | 85.14 / 85.63 | 81.97 / 86.74 | 16.9
+clean      2.0   0.2 |      76.9 | 0e+00 | 85.93 / 86.30 | 81.97 / 86.74 | 14.2
+clean      2.0   0.5 |      89.6 | 0e+00 | 86.59 / 86.67 | 81.97 / 86.74 | 9.7
+blur       0.5  0.05 |      48.9 | 0e+00 | 82.23 / 83.67 | 78.38 / 82.00 | 13.3
+blur       0.5   0.1 |      62.3 | 0e+00 | 82.61 / 83.67 | 78.38 / 82.00 | 12.3
+blur       0.5   0.2 |      74.1 | 0e+00 | 83.03 / 83.67 | 78.38 / 82.00 | 10.6
+blur       0.5   0.5 |      88.8 | 0e+00 | 83.16 / 83.78 | 78.38 / 82.00 | 7.6
+blur       1.0  0.05 |      48.9 | 0e+00 | 82.81 / 83.30 | 78.38 / 82.00 | 16.9
+blur       1.0   0.1 |      62.3 | 0e+00 | 83.30 / 83.30 | 78.38 / 82.00 | 15.4
+blur       1.0   0.2 |      74.1 | 0e+00 | 83.82 / 83.70 | 78.38 / 82.00 | 12.8
+blur       1.0   0.5 |      88.8 | 0e+00 | 83.67 / 83.74 | 78.38 / 82.00 | 8.5
+blur       2.0  0.05 |      48.9 | 0e+00 | 82.36 / 82.70 | 78.38 / 82.00 | 21.6
+blur       2.0   0.1 |      62.3 | 0e+00 | 83.30 / 83.48 | 78.38 / 82.00 | 18.8
+blur       2.0   0.2 |      74.1 | 0e+00 | 84.14 / 84.33 | 78.38 / 82.00 | 14.4
+blur       2.0   0.5 |      88.8 | 0e+00 | 83.78 / 83.74 | 78.38 / 82.00 | 8.9
+max |p_E-VCD - p_VCD| over all 48 (condition, alpha, beta) settings: 0.0e+00
+
+=== C. REAL END-TO-END RUN (LLaVA-1.5-7B, same noise seeds and sampling randomness, measured latency)
+method    mode     latency ms (mean±sd)  passes  accuracy% (n)
+base      greedy       493 ±    6        1.00    86.7 (300)
+base      sample       504 ±    3        1.00    82.3 (300)
+vcd       greedy      1009 ±    3        2.00    85.3 (300)
+vcd       sample      1009 ±    4        2.00    87.7 (300)
+e_vcd     greedy       712 ±  248        1.41    85.3 (300)
+e_vcd     sample       713 ±  249        1.41    87.7 (300)
+eg+_0.4   greedy       658 ±  232        1.30    85.3 (300)
+eg+_0.5   greedy       619 ±  212        1.23    85.7 (300)
+eg+_0.5   sample       620 ±  212        1.23    84.7 (300)
+output mismatches, VCD vs exact-gated VCD (greedy): 0 of 300
+output mismatches, VCD vs exact-gated VCD (sample): 0 of 300
+MEASURED latency saving of the exact gate vs VCD (greedy run): 29.5%  (base = 493 ms, VCD = 1009 ms, exact gate = 712 ms)
+
+wrote solid_numbers.json and solid_report.txt
+
+[14:16:42 | +113.6 min] packaging
+
+[14:16:43 | +113.6 min] ALL DONE.  Send me the full report printed above (or /kaggle/working/egvcd_data/solid_report.txt) + /kaggle/working/solid_results.zip

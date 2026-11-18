@@ -1,0 +1,363 @@
+[05:31:07 | +  0.0 min] STEP 0  checking GPUs
+GPU 0: Tesla T4 (UUID: GPU-da4eb8f6-5e91-bd65-156d-d2f05a84d84f)
+GPU 1: Tesla T4 (UUID: GPU-db1c72d2-ca4c-cc96-0661-b5fd14285e46)
+
+
+[05:31:07 | +  0.0 min] STEP 0  installing libraries
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+ydata-profiling 4.18.4 requires scipy<1.17,>=1.8, but you have scipy 1.18.1 which is incompatible.
+datasets 4.8.5 requires huggingface-hub<2.0,>=0.25.0, but you have huggingface-hub 2.4.0 which is incompatible.
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+found earlier results: LLaVA-7B original 12/12, held-out 0/3, 13B 0/3, Qwen2-VL 0/3, LLaVA-NeXT 0/3
+
+[05:31:30 | +  0.4 min] STEP 1  data: POPE images, then CHAIR resources for 150 images (COCO annotations ~240 MB; ~3 min)
+random 900 questions
+popular 900 questions
+adversarial 900 questions
+images: 150
+downloading COCO annotations (~240 MB) ...
+prepared 150 images, synonyms, ground truth
+
+[05:33:10 | +  2.1 min] STEP 1  downloading llava-1.5-7b-hf (~14 GB)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+7B at /root/.cache/huggingface/hub/models--llava-hf--llava-1.5-7b-hf/snapshots/b234b804b114d9e37bb655e11cbbb5f5e971b7a9
+
+[05:34:15 | +  3.1 min] OFFLINE REPORT  (no GPU needed): consistency / alpha-beta sweep / degradation over every earlier cache
+=== 1. CONSISTENCY ACROSS MODELS AND IMAGE SETS (clean, POPE, image-clustered 95% CIs)
+setting                                  n_q needs2nd%  skip%        VCD gain sampled         VCD gain greedy   APC%  FYR smp      FYR grd     EG+.5 rho  keep   excess
+LLaVA-1.5-7B, 150 imgs (D1)         2700      36.1   63.9  +3.38 [+2.52,+4.34]  -0.85 [-2.37,+0.81]    49%  11.0->14.5  5.2->14.2   20%  86.3% +0.66
+skippable share across 1 settings: min 63.9%  max 63.9% | exactness violated in any: False
+
+=== 2. alpha / beta SWEEP ON EVERY DATASET (offline). exact = max|p_exact-gated - p_VCD|; accuracies in %, FYR = false-yes rate
+setting                                alpha  beta  skip%  exact   VCD acc smp/grd   base acc smp/grd   VCD FYR smp   base FYR smp/grd
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.1   63.9  0e+00    85.35/85.89       81.97/86.74            14.5       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.2   76.9  0e+00    85.92/86.15       81.97/86.74            12.7       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.5   89.6  0e+00    86.44/86.56       81.97/86.74             9.3       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              0.5   0.5   89.6  0e+00    86.27/86.74       81.97/86.74             8.4       11.0/5.2
+
+=== 3. VCD UNDER IMAGE DEGRADATION, PER MODEL (sampled gain over the sampled baseline, image-clustered 95% CI)
+model           condition  base acc  skip%        VCD gain sampled         VCD gain greedy   FYR base->VCD (smp)
+LLaVA-1.5-7B    clean         81.97   63.9   +3.38 [+2.52,+4.34]    -0.85 [-2.37,+0.81]      11.0 -> 14.5
+LLaVA-1.5-7B    lowlight      80.21   63.7   +3.83 [+2.71,+5.01]    +0.56 [-1.41,+2.63]      10.8 -> 18.1
+LLaVA-1.5-7B    noise         80.95   64.3   +3.49 [+2.60,+4.55]    -0.30 [-2.04,+1.59]      10.6 -> 14.1
+LLaVA-1.5-7B    blur          78.38   62.3   +4.92 [+3.80,+6.05]    +1.30 [-0.63,+3.26]       9.9 -> 15.4
+
+wrote quality_numbers.json and quality_report.txt
+
+[05:34:16 | +  3.2 min] STAGE B  CHAIR caption quality: smoke test (2 images) then 150 images x 4 methods x 2 mode(s) -> about 97 min
+
+[05:34:16 | +  3.2 min] [GPU0] started 'chair_gen --shard 0 --nshards 2 --n 150 --modes greedy,sample --smoke' on GPU 0
+[GPU0|chair_gen --shard 0] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[GPU0|chair_gen --shard 0] shard 0: image 1/2 done  (84s)
+[GPU0|chair_gen --shard 0] shard 0: image 2/2 done  (173s)
+[GPU0|chair_gen --shard 0]   smoke base greedy     9614 ms  neg_calls   0/ 96  The image captures a snowboarder skillfully riding down a snow-covered slope. The snowboar
+[GPU0|chair_gen --shard 0]   smoke vcd  greedy    12639 ms  neg_calls   0/ 96  The image captures a snowboarder skillfully riding down a snow-covered slope. The person i
+[GPU0|chair_gen --shard 0]   smoke evcd greedy    10957 ms  neg_calls  66/ 96  The image captures a snowboarder skillfully riding down a snow-covered slope. The person i
+[GPU0|chair_gen --shard 0]   smoke egp  greedy    10992 ms  neg_calls  66/ 96  The image captures a snowboarder skillfully riding down a snow-covered slope. The person i
+[GPU0|chair_gen --shard 0]   smoke base sample     5793 ms  neg_calls   0/ 87  The image captures a lone man enjoying a serene skiing experience atop a snow-covered slop
+[GPU0|chair_gen --shard 0]   smoke vcd  sample    12844 ms  neg_calls   0/ 96  The image captures a man snowboarding down a steep slope on a snow-covered mountain. He is
+[GPU0|chair_gen --shard 0]   smoke evcd sample    10515 ms  neg_calls  55/ 96  The image captures a man snowboarding down a steep slope on a snow-covered mountain. He is
+[GPU0|chair_gen --shard 0]   smoke egp  sample    10562 ms  neg_calls  54/ 96  The image captures a man snowboarding down a steep slope on a snow-covered mountain. He is
+
+[05:37:42 | +  6.6 min] [GPU0] finished 'chair_gen --shard 0'
+
+[05:37:42 | +  6.6 min] [GPU0] started 'chair_gen --shard 0 --nshards 2 --n 150 --modes greedy,sample --max_new 96' on GPU 0
+
+[05:39:16 | +  8.2 min] [GPU1] started 'chair_gen --shard 1 --nshards 2 --n 150 --modes greedy,sample --max_new 96' on GPU 1
+[GPU0|chair_gen --shard 0] shard 0: image 1/75 done  (90s)
+[GPU1|chair_gen --shard 1] shard 1: image 1/75 done  (80s)
+[GPU0|chair_gen --shard 0] shard 0: image 2/75 done  (178s)
+[GPU1|chair_gen --shard 1] shard 1: image 2/75 done  (165s)
+[GPU0|chair_gen --shard 0] shard 0: image 3/75 done  (266s)
+[GPU1|chair_gen --shard 1] shard 1: image 3/75 done  (243s)
+[GPU0|chair_gen --shard 0] shard 0: image 4/75 done  (352s)
+[GPU0|chair_gen --shard 0] shard 0: image 5/75 done  (440s)
+[GPU1|chair_gen --shard 1] shard 1: image 4/75 done  (348s)
+[GPU0|chair_gen --shard 0] shard 0: image 6/75 done  (528s)
+[GPU1|chair_gen --shard 1] shard 1: image 5/75 done  (461s)
+[GPU0|chair_gen --shard 0] shard 0: image 7/75 done  (614s)
+[GPU1|chair_gen --shard 1] shard 1: image 6/75 done  (576s)
+[GPU0|chair_gen --shard 0] shard 0: image 8/75 done  (701s)
+[GPU0|chair_gen --shard 0] shard 0: image 9/75 done  (789s)
+[GPU1|chair_gen --shard 1] shard 1: image 7/75 done  (697s)
+[GPU0|chair_gen --shard 0] shard 0: image 10/75 done  (875s)
+[GPU1|chair_gen --shard 1] shard 1: image 8/75 done  (814s)
+[GPU0|chair_gen --shard 0] shard 0: image 11/75 done  (950s)
+[GPU1|chair_gen --shard 1] shard 1: image 9/75 done  (937s)
+[GPU0|chair_gen --shard 0] shard 0: image 12/75 done  (1037s)
+[GPU0|chair_gen --shard 0] shard 0: image 13/75 done  (1123s)
+[GPU1|chair_gen --shard 1] shard 1: image 10/75 done  (1035s)
+[GPU0|chair_gen --shard 0] shard 0: image 14/75 done  (1210s)
+[GPU1|chair_gen --shard 1] shard 1: image 11/75 done  (1147s)
+[GPU0|chair_gen --shard 0] shard 0: image 15/75 done  (1295s)
+[GPU1|chair_gen --shard 1] shard 1: image 12/75 done  (1265s)
+[GPU0|chair_gen --shard 0] shard 0: image 16/75 done  (1383s)
+[GPU0|chair_gen --shard 0] shard 0: image 17/75 done  (1469s)
+[GPU1|chair_gen --shard 1] shard 1: image 13/75 done  (1389s)
+[GPU0|chair_gen --shard 0] shard 0: image 18/75 done  (1551s)
+[GPU1|chair_gen --shard 1] shard 1: image 14/75 done  (1507s)
+[GPU0|chair_gen --shard 0] shard 0: image 19/75 done  (1636s)
+[GPU1|chair_gen --shard 1] shard 1: image 15/75 done  (1624s)
+[GPU0|chair_gen --shard 0] shard 0: image 20/75 done  (1721s)
+[GPU0|chair_gen --shard 0] shard 0: image 21/75 done  (1810s)
+[GPU1|chair_gen --shard 1] shard 1: image 16/75 done  (1741s)
+[GPU0|chair_gen --shard 0] shard 0: image 22/75 done  (1895s)
+[GPU1|chair_gen --shard 1] shard 1: image 17/75 done  (1844s)
+[GPU0|chair_gen --shard 0] shard 0: image 23/75 done  (1982s)
+[GPU0|chair_gen --shard 0] shard 0: image 24/75 done  (2055s)
+[GPU1|chair_gen --shard 1] shard 1: image 18/75 done  (1961s)
+[GPU0|chair_gen --shard 0] shard 0: image 25/75 done  (2142s)
+[GPU1|chair_gen --shard 1] shard 1: image 19/75 done  (2075s)
+[GPU0|chair_gen --shard 0] shard 0: image 26/75 done  (2227s)
+[GPU1|chair_gen --shard 1] shard 1: image 20/75 done  (2192s)
+[GPU0|chair_gen --shard 0] shard 0: image 27/75 done  (2315s)
+[GPU0|chair_gen --shard 0] shard 0: image 28/75 done  (2401s)
+[GPU1|chair_gen --shard 1] shard 1: image 21/75 done  (2310s)
+[GPU0|chair_gen --shard 0] shard 0: image 29/75 done  (2488s)
+[GPU1|chair_gen --shard 1] shard 1: image 22/75 done  (2436s)
+[GPU0|chair_gen --shard 0] shard 0: image 30/75 done  (2567s)
+[GPU0|chair_gen --shard 0] shard 0: image 31/75 done  (2649s)
+[GPU1|chair_gen --shard 1] shard 1: image 23/75 done  (2559s)
+[GPU0|chair_gen --shard 0] shard 0: image 32/75 done  (2737s)
+[GPU1|chair_gen --shard 1] shard 1: image 24/75 done  (2682s)
+[GPU0|chair_gen --shard 0] shard 0: image 33/75 done  (2822s)
+[GPU1|chair_gen --shard 1] shard 1: image 25/75 done  (2812s)
+[GPU0|chair_gen --shard 0] shard 0: image 34/75 done  (2910s)
+[GPU0|chair_gen --shard 0] shard 0: image 35/75 done  (2996s)
+[GPU1|chair_gen --shard 1] shard 1: image 26/75 done  (2939s)
+[GPU0|chair_gen --shard 0] shard 0: image 36/75 done  (3083s)
+[GPU1|chair_gen --shard 1] shard 1: image 27/75 done  (3063s)
+[GPU0|chair_gen --shard 0] shard 0: image 37/75 done  (3171s)
+[GPU0|chair_gen --shard 0] shard 0: image 38/75 done  (3257s)
+[GPU1|chair_gen --shard 1] shard 1: image 28/75 done  (3186s)
+[GPU0|chair_gen --shard 0] shard 0: image 39/75 done  (3344s)
+[GPU1|chair_gen --shard 1] shard 1: image 29/75 done  (3311s)
+[GPU0|chair_gen --shard 0] shard 0: image 40/75 done  (3433s)
+[GPU0|chair_gen --shard 0] shard 0: image 41/75 done  (3520s)
+[GPU1|chair_gen --shard 1] shard 1: image 30/75 done  (3440s)
+[GPU0|chair_gen --shard 0] shard 0: image 42/75 done  (3607s)
+[GPU1|chair_gen --shard 1] shard 1: image 31/75 done  (3569s)
+[GPU0|chair_gen --shard 0] shard 0: image 43/75 done  (3694s)
+[GPU0|chair_gen --shard 0] shard 0: image 44/75 done  (3781s)
+[GPU1|chair_gen --shard 1] shard 1: image 32/75 done  (3694s)
+[GPU0|chair_gen --shard 0] shard 0: image 45/75 done  (3868s)
+[GPU1|chair_gen --shard 1] shard 1: image 33/75 done  (3819s)
+[GPU0|chair_gen --shard 0] shard 0: image 46/75 done  (3955s)
+[GPU0|chair_gen --shard 0] shard 0: image 47/75 done  (4034s)
+[GPU1|chair_gen --shard 1] shard 1: image 34/75 done  (3945s)
+[GPU0|chair_gen --shard 0] shard 0: image 48/75 done  (4118s)
+[GPU1|chair_gen --shard 1] shard 1: image 35/75 done  (4074s)
+[GPU0|chair_gen --shard 0] shard 0: image 49/75 done  (4207s)
+[GPU1|chair_gen --shard 1] shard 1: image 36/75 done  (4189s)
+[GPU0|chair_gen --shard 0] shard 0: image 50/75 done  (4294s)
+[GPU0|chair_gen --shard 0] shard 0: image 51/75 done  (4379s)
+[GPU1|chair_gen --shard 1] shard 1: image 37/75 done  (4313s)
+[GPU0|chair_gen --shard 0] shard 0: image 52/75 done  (4465s)
+[GPU1|chair_gen --shard 1] shard 1: image 38/75 done  (4437s)
+[GPU0|chair_gen --shard 0] shard 0: image 53/75 done  (4552s)
+[GPU0|chair_gen --shard 0] shard 0: image 54/75 done  (4639s)
+[GPU1|chair_gen --shard 1] shard 1: image 39/75 done  (4563s)
+[GPU0|chair_gen --shard 0] shard 0: image 55/75 done  (4725s)
+[GPU1|chair_gen --shard 1] shard 1: image 40/75 done  (4690s)
+[GPU0|chair_gen --shard 0] shard 0: image 56/75 done  (4809s)
+[GPU0|chair_gen --shard 0] shard 0: image 57/75 done  (4893s)
+[GPU1|chair_gen --shard 1] shard 1: image 41/75 done  (4819s)
+[GPU0|chair_gen --shard 0] shard 0: image 58/75 done  (4980s)
+[GPU1|chair_gen --shard 1] shard 1: image 42/75 done  (4950s)
+[GPU0|chair_gen --shard 0] shard 0: image 59/75 done  (5067s)
+[GPU0|chair_gen --shard 0] shard 0: image 60/75 done  (5149s)
+[GPU1|chair_gen --shard 1] shard 1: image 43/75 done  (5062s)
+[GPU0|chair_gen --shard 0] shard 0: image 61/75 done  (5238s)
+[GPU1|chair_gen --shard 1] shard 1: image 44/75 done  (5183s)
+[GPU0|chair_gen --shard 0] shard 0: image 62/75 done  (5324s)
+[GPU1|chair_gen --shard 1] shard 1: image 45/75 done  (5306s)
+[GPU0|chair_gen --shard 0] shard 0: image 63/75 done  (5411s)
+[GPU0|chair_gen --shard 0] shard 0: image 64/75 done  (5497s)
+[GPU1|chair_gen --shard 1] shard 1: image 46/75 done  (5432s)
+[GPU0|chair_gen --shard 0] shard 0: image 65/75 done  (5584s)
+[GPU1|chair_gen --shard 1] shard 1: image 47/75 done  (5560s)
+[GPU0|chair_gen --shard 0] shard 0: image 66/75 done  (5670s)
+[GPU0|chair_gen --shard 0] shard 0: image 67/75 done  (5755s)
+[GPU1|chair_gen --shard 1] shard 1: image 48/75 done  (5685s)
+[GPU0|chair_gen --shard 0] shard 0: image 68/75 done  (5838s)
+[GPU1|chair_gen --shard 1] shard 1: image 49/75 done  (5811s)
+[GPU0|chair_gen --shard 0] shard 0: image 69/75 done  (5924s)
+[GPU0|chair_gen --shard 0] shard 0: image 70/75 done  (6012s)
+[GPU1|chair_gen --shard 1] shard 1: image 50/75 done  (5936s)
+[GPU0|chair_gen --shard 0] shard 0: image 71/75 done  (6099s)
+[GPU1|chair_gen --shard 1] shard 1: image 51/75 done  (6062s)
+[GPU0|chair_gen --shard 0] shard 0: image 72/75 done  (6184s)
+[GPU0|chair_gen --shard 0] shard 0: image 73/75 done  (6248s)
+[GPU1|chair_gen --shard 1] shard 1: image 52/75 done  (6174s)
+[GPU0|chair_gen --shard 0] shard 0: image 74/75 done  (6336s)
+[GPU1|chair_gen --shard 1] shard 1: image 53/75 done  (6261s)
+[GPU0|chair_gen --shard 0] shard 0: image 75/75 done  (6421s)
+
+[07:24:54 | +113.8 min] [GPU0] finished 'chair_gen --shard 0'
+[GPU1|chair_gen --shard 1] shard 1: image 54/75 done  (6386s)
+[GPU1|chair_gen --shard 1] shard 1: image 55/75 done  (6522s)
+[GPU1|chair_gen --shard 1] shard 1: image 56/75 done  (6670s)
+[GPU1|chair_gen --shard 1] shard 1: image 57/75 done  (6793s)
+[GPU1|chair_gen --shard 1] shard 1: image 58/75 done  (6929s)
+[GPU1|chair_gen --shard 1] shard 1: image 59/75 done  (7063s)
+[GPU1|chair_gen --shard 1] shard 1: image 60/75 done  (7199s)
+[GPU1|chair_gen --shard 1] shard 1: image 61/75 done  (7336s)
+[GPU1|chair_gen --shard 1] shard 1: image 62/75 done  (7477s)
+[GPU1|chair_gen --shard 1] shard 1: image 63/75 done  (7614s)
+[GPU1|chair_gen --shard 1] shard 1: image 64/75 done  (7741s)
+[GPU1|chair_gen --shard 1] shard 1: image 65/75 done  (7875s)
+[GPU1|chair_gen --shard 1] shard 1: image 66/75 done  (8019s)
+[GPU1|chair_gen --shard 1] shard 1: image 67/75 done  (8162s)
+[GPU1|chair_gen --shard 1] shard 1: image 68/75 done  (8304s)
+[GPU1|chair_gen --shard 1] shard 1: image 69/75 done  (8449s)
+[GPU1|chair_gen --shard 1] shard 1: image 70/75 done  (8591s)
+[GPU1|chair_gen --shard 1] shard 1: image 71/75 done  (8741s)
+[GPU1|chair_gen --shard 1] shard 1: image 72/75 done  (8856s)
+[GPU1|chair_gen --shard 1] shard 1: image 73/75 done  (8997s)
+[GPU1|chair_gen --shard 1] shard 1: image 74/75 done  (9131s)
+[GPU1|chair_gen --shard 1] shard 1: image 75/75 done  (9271s)
+
+[08:13:59 | +162.9 min] [GPU1] finished 'chair_gen --shard 1'
+
+[08:13:59 | +162.9 min] STAGE B  CHAIR evaluation (CPU)
+=== CHAIR caption-quality experiment: 150 images with all methods, LLaVA-1.5-7B, prompt 'Describe this image in detail.'
+method|mode      CHAIR_s %          95% CI   CHAIR_i %          95% CI  coverage %  tokens  ms/caption
+base|greedy           50.7     [42.7,58.7]        12.3      [9.9,14.8]        70.9    93.6        8811
+vcd|greedy            54.0     [46.0,62.0]        12.7     [10.4,15.1]        73.4    93.9       17101
+evcd|greedy           54.7     [46.7,62.7]        13.0     [10.7,15.4]        73.3    93.9       13294
+egp|greedy            52.7     [44.7,60.7]        12.8     [10.4,15.2]        73.9    93.9       13154
+base|sample           50.0     [42.0,58.0]        12.7     [10.3,15.3]        65.1    94.0        8748
+vcd|sample            47.3     [39.3,55.3]        11.0      [8.8,13.5]        70.2    94.3       17115
+evcd|sample           46.7     [39.3,54.7]        10.8      [8.6,13.3]        69.7    94.1       13251
+egp|sample            46.0     [38.0,54.7]        10.5      [8.4,12.9]        70.1    94.2       13127
+
+paired differences (same images; 95% bootstrap CI over images; negative CHAIR = fewer hallucinations)
+  greedy VCD - base                     CHAIR_s   +3.3 [-6.0,+12.7]   CHAIR_i  +0.40 [-2.12,+2.86]
+  greedy exact-gated - VCD              CHAIR_s   +0.7 [+0.0,+2.0]   CHAIR_i  +0.33 [+0.01,+0.80]
+  greedy entropy+exact gated - VCD      CHAIR_s   -1.3 [-4.0,+1.3]   CHAIR_i  +0.08 [-0.38,+0.65]
+  greedy entropy+exact gated - base     CHAIR_s   +2.0 [-7.3,+11.3]   CHAIR_i  +0.48 [-2.10,+3.07]
+  sample VCD - base                     CHAIR_s   -2.7 [-12.7,+8.0]   CHAIR_i  -1.73 [-4.41,+1.20]
+  sample exact-gated - VCD              CHAIR_s   -0.7 [-3.3,+1.3]   CHAIR_i  -0.21 [-0.70,+0.22]
+  sample entropy+exact gated - VCD      CHAIR_s   -1.3 [-4.7,+2.0]   CHAIR_i  -0.53 [-1.36,+0.25]
+  sample entropy+exact gated - base     CHAIR_s   -4.0 [-14.7,+6.0]   CHAIR_i  -2.26 [-5.02,+0.55]
+identical captions, VCD vs exact-gated (greedy): 141/150
+identical captions, VCD vs exact-gated (sample): 136/150
+entropy+exact gate (greedy): second pass at 60.4% of steps (VCD: 100%, exact gate: 62.0%)
+entropy+exact gate (sample): second pass at 61.2% of steps (VCD: 100%, exact gate: 62.7%)
+
+example COCO_val2014_000000007320.jpg: hallucinated objects  base ['chair', 'book']  | VCD ['laptop', 'book', 'laptop', 'car']
+   base: The image features a person sitting in front of a TV, which is displaying a video game. The person is holding a Wii remote, likely playing the game. The TV is positioned on the left side of the scene, and the person is seated on a
+   VCD : The image features a Nintendo Wii game controller placed on a wooden desk in front of a computer monitor. A person is holding the Wii remote, likely playing a video game displayed on the monitor.
+
+There are several other people in
+
+example COCO_val2014_000000007795.jpg: hallucinated objects  base ['chair']  | VCD []
+   base: The image features a cozy bedroom with two beds, one on the left side and the other on the right side of the room. The beds are neatly made, and there are two pillows on each bed. The room is well-lit, with a bright window allowin
+   VCD : The image showcases a cozy bedroom with two neatly made beds, each with white sheets and black pillows. The beds are positioned next to each other, creating a comfortable sleeping arrangement.
+
+In addition to the beds, the room f
+
+example COCO_val2014_000000012333.jpg: hallucinated objects  base []  | VCD ['cup']
+   base: The image captures a thrilling moment at a horse show, where a woman is riding a white horse, skillfully jumping over a fence. The horse and rider are the main focus of the scene, with the horse's legs in the air as it jumps.
+
+The
+   VCD : In the scene, a woman is skillfully riding a white horse around a white fence, performing in front of a crowd of spectators. There are at least 13 people watching the performance, some sitting on chairs and others standing. A few
+
+[08:13:59 | +162.9 min] STAGE B DONE. The CHAIR report above is the key new result; copy it now if time is short.
+(no OOD dataset given: skipping the real-domain test. Set OOD_COCO_JSON / OOD_IMAGES_DIR at the top to add one.)
+
+[08:13:59 | +162.9 min] STAGE C  numerics diagnostic (GPU0)
+
+[08:13:59 | +162.9 min] [GPU0] started 'numerics --n_caps 20 --max_new 96' on GPU 0
+[GPU0|numerics --n_caps 20] numerics 1/20  steps 70  contrast steps 46
+[GPU0|numerics --n_caps 20] Traceback (most recent call last):
+[GPU0|numerics --n_caps 20]   File "/kaggle/working/egvcd_quality.py", line 391, in <module>
+[GPU0|numerics --n_caps 20]     elif a.cmd == "numerics": run_numerics(a.n_caps, a.max_new)
+[GPU0|numerics --n_caps 20]                               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+[GPU0|numerics --n_caps 20]   File "/kaggle/working/egvcd_quality.py", line 266, in run_numerics
+[GPU0|numerics --n_caps 20]     gen, _ = M.decode("vcd", "greedy", ops, ids, M.HFBranch(model, pv), lambda: M.HFBranch(model, pvn), qid, max_new, eos); T = len(gen)
+[GPU0|numerics --n_caps 20]              ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[GPU0|numerics --n_caps 20]   File "/kaggle/working/egvcd_more.py", line 34, in decode
+[GPU0|numerics --n_caps 20]     lo = pos.prefill(prompt_ids)
+[GPU0|numerics --n_caps 20]   File "/kaggle/working/egvcd_more.py", line 96, in prefill
+[GPU0|numerics --n_caps 20]     self.cache, self.n = None, 0; return self._fwd(list(ids), self.pv)
+[GPU0|numerics --n_caps 20]                                          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+[GPU0|numerics --n_caps 20]   File "/kaggle/working/egvcd_more.py", line 91, in _fwd
+[GPU0|numerics --n_caps 20]     out = self.model(input_ids=x, attention_mask=t.ones(1, self.n + len(ids), dtype=t.long, device=self.model.device),
+[GPU0|numerics --n_caps 20]                      pixel_values=pv, past_key_values=self.cache, use_cache=True)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[GPU0|numerics --n_caps 20]     return self._call_impl(*args, **kwargs)
+[GPU0|numerics --n_caps 20]            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[GPU0|numerics --n_caps 20]     return forward_call(*args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/utils/generic.py", line 943, in wrapper
+[GPU0|numerics --n_caps 20]     output = func(self, *args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/models/llava/modeling_llava.py", line 351, in forward
+[GPU0|numerics --n_caps 20]     outputs = self.model(
+[GPU0|numerics --n_caps 20]         input_ids=input_ids,
+[GPU0|numerics --n_caps 20]     ...<9 lines>...
+[GPU0|numerics --n_caps 20]         **kwargs,
+[GPU0|numerics --n_caps 20]     )
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[GPU0|numerics --n_caps 20]     return self._call_impl(*args, **kwargs)
+[GPU0|numerics --n_caps 20]            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[GPU0|numerics --n_caps 20]     return forward_call(*args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/utils/generic.py", line 943, in wrapper
+[GPU0|numerics --n_caps 20]     output = func(self, *args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/models/llava/modeling_llava.py", line 259, in forward
+[GPU0|numerics --n_caps 20]     outputs = self.language_model(
+[GPU0|numerics --n_caps 20]         attention_mask=attention_mask,
+[GPU0|numerics --n_caps 20]     ...<3 lines>...
+[GPU0|numerics --n_caps 20]         **kwargs,
+[GPU0|numerics --n_caps 20]     )
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[GPU0|numerics --n_caps 20]     return self._call_impl(*args, **kwargs)
+[GPU0|numerics --n_caps 20]            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[GPU0|numerics --n_caps 20]     return forward_call(*args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/utils/generic.py", line 1081, in wrapper
+[GPU0|numerics --n_caps 20]     output = func(self, *args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/utils/output_capturing.py", line 361, in wrapper
+[GPU0|numerics --n_caps 20]     outputs = func(self, *args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/models/llama/modeling_llama.py", line 392, in forward
+[GPU0|numerics --n_caps 20]     hidden_states = decoder_layer(
+[GPU0|numerics --n_caps 20]         hidden_states,
+[GPU0|numerics --n_caps 20]     ...<5 lines>...
+[GPU0|numerics --n_caps 20]         **kwargs,
+[GPU0|numerics --n_caps 20]     )
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[GPU0|numerics --n_caps 20]     return self._call_impl(*args, **kwargs)
+[GPU0|numerics --n_caps 20]            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[GPU0|numerics --n_caps 20]     return forward_call(*args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/modeling_layers.py", line 121, in forward_with_checkpointing
+[GPU0|numerics --n_caps 20]     return forward(self, *args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/models/llama/modeling_llama.py", line 311, in forward
+[GPU0|numerics --n_caps 20]     hidden_states = self.mlp(hidden_states)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+[GPU0|numerics --n_caps 20]     return self._call_impl(*args, **kwargs)
+[GPU0|numerics --n_caps 20]            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+[GPU0|numerics --n_caps 20]     return forward_call(*args, **kwargs)
+[GPU0|numerics --n_caps 20]   File "/usr/local/lib/python3.13/dist-packages/transformers/models/llama/modeling_llama.py", line 164, in forward
+[GPU0|numerics --n_caps 20]     down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+[GPU0|numerics --n_caps 20]                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[GPU0|numerics --n_caps 20] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 6.81 MiB is free. Including non-PyTorch memory, this process has 14.55 GiB memory in use. Of the allocated memory 14.41 GiB is allocated by PyTorch, and 16.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+---------------------------------------------------------------------------
+RuntimeError                              Traceback (most recent call last)
+/tmp/ipykernel_50/3241622546.py in <cell line: 0>()
+   1501     print("(no OOD dataset given: skipping the real-domain test. Set OOD_COCO_JSON / OOD_IMAGES_DIR at the top to add one.)")
+   1502 say("STAGE C  numerics diagnostic (GPU0)" + (" | real-domain caching (GPU1)" if jobs1 else ""))
+-> 1503 run_parallel([W("GPU0", 0, jobs0, 0)] + ([W("GPU1", 1, jobs1, 0)] if jobs1 else []))
+   1504 say("STAGE C  report")
+   1505 run([PY, "-u", S4, "analyze3"])
+
+/tmp/ipykernel_50/3241622546.py in run_parallel(workers)
+   1464                 sel.unregister(w.proc.stdout); rc = w.proc.wait()
+   1465                 if rc != 0:
+-> 1466                     raise RuntimeError(f"[{w.name}] job '{w.tag}' failed (exit {rc}). Scroll up for the message.")
+   1467                 say(f"[{w.name}] finished '{w.tag}'"); w.proc = None
+   1468                 if w.jobs: launch(w)
+
+RuntimeError: [GPU0] job 'numerics --n_caps 20' failed (exit 1). Scroll up for the message.

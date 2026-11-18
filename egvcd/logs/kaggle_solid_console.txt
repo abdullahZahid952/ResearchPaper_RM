@@ -1,0 +1,364 @@
+[10:34:37 | +  0.0 min] STEP 0  checking GPUs
+GPU 0: Tesla T4 (UUID: GPU-9da2dfb8-e344-6b7f-19bb-3183e456432b)
+GPU 1: Tesla T4 (UUID: GPU-ad059b22-8d23-3b31-7c44-d3ad1325cf3a)
+
+
+[10:34:37 | +  0.0 min] STEP 0  installing libraries (1-2 min)
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+ydata-profiling 4.18.4 requires scipy<1.17,>=1.8, but you have scipy 1.18.1 which is incompatible.
+datasets 4.8.5 requires huggingface-hub<2.0,>=0.25.0, but you have huggingface-hub 2.4.0 which is incompatible.
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+found earlier results: original caches 12/12, held-out caches 0/3, 13B caches 0/3
+
+[10:35:04 | +  0.5 min] STEP 1  data: the 150 original images (~2 min)
+random 900 questions
+popular 900 questions
+adversarial 900 questions
+images: 150
+
+[10:35:21 | +  0.7 min] STEP 1  downloading llava-1.5-7b-hf (~14 GB, no progress bar)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+7B at /root/.cache/huggingface/hub/models--llava-hf--llava-1.5-7b-hf/snapshots/b234b804b114d9e37bb655e11cbbb5f5e971b7a9
+
+[10:36:29 | +  1.9 min] STEP 1  downloading in the background while Stage A runs: ['Qwen/Qwen2-VL-7B-Instruct']
+
+[10:36:29 | +  1.9 min] STAGE A  GPU0: generation smoke test -> open-ended generation (~50 min) -> noise T=500   |   GPU1: noise seeds / noise steps (~70 min)
+
+[10:36:29 | +  1.9 min] [GPU0] started 'gen --smoke' on GPU 0
+
+[10:37:31 | +  2.9 min] [GPU1] started 'noise --T 999 --seed 1' on GPU 1
+[GPU0|gen --smoke] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[GPU1|noise --T 999 --seed 1] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 0/900 5s
+[GPU0|gen --smoke] smoke: manual loop vs HF generate: 96/96 tokens identical
+[GPU0|gen --smoke] smoke caption: The image captures a snowboarder skillfully riding down a snow-covered slope. The snowboarder is wearing a red jacket, making them stand out against the white snow. The snowboarder is positioned in th
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 100/900 54s
+[GPU0|gen --smoke] caption 1/2 done  (70 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 200/900 108s
+[GPU0|gen --smoke] caption 2/2 done  (96 tokens)
+[GPU0|gen --smoke] VCD vs exact-gated VCD (greedy): identical sequences 2/2; divergences at near-tie steps: []
+[GPU0|gen --smoke] VCD vs exact-gated VCD (sample): identical sequences 1/2; divergences at near-tie steps: [0.28125]
+
+[10:41:10 | +  6.6 min] [GPU0] finished 'gen --smoke'
+
+[10:41:10 | +  6.6 min] [GPU0] started 'gen --n_img 60 --max_new 96' on GPU 0
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 300/900 161s
+[GPU0|gen 60 --max_new 96] caption 1/60 done  (70 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 400/900 213s
+[GPU0|gen 60 --max_new 96] caption 2/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 500/900 266s
+[GPU0|gen 60 --max_new 96] caption 3/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 600/900 319s
+[GPU0|gen 60 --max_new 96] caption 4/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 700/900 372s
+[GPU0|gen 60 --max_new 96] caption 5/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 random 800/900 425s
+[GPU0|gen 60 --max_new 96] caption 6/60 done  (88 tokens)
+[GPU1|noise --T 999 --seed 1] saved /kaggle/working/egvcd_data/cache_noise/clean_random_T999_s1.npz
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 0/900 1s
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 100/900 53s
+[GPU0|gen 60 --max_new 96] caption 7/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 200/900 106s
+[GPU0|gen 60 --max_new 96] caption 8/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 300/900 159s
+[GPU0|gen 60 --max_new 96] caption 9/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 400/900 212s
+[GPU0|gen 60 --max_new 96] caption 10/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 500/900 265s
+[GPU0|gen 60 --max_new 96] caption 11/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 600/900 318s
+[GPU0|gen 60 --max_new 96] caption 12/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 700/900 371s
+[GPU0|gen 60 --max_new 96] caption 13/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 popular 800/900 424s
+[GPU0|gen 60 --max_new 96] caption 14/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] saved /kaggle/working/egvcd_data/cache_noise/clean_popular_T999_s1.npz
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 0/900 1s
+[GPU0|gen 60 --max_new 96] caption 15/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 100/900 54s
+[GPU0|gen 60 --max_new 96] caption 16/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 200/900 107s
+[GPU0|gen 60 --max_new 96] caption 17/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 300/900 160s
+[GPU0|gen 60 --max_new 96] caption 18/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 400/900 213s
+[GPU0|gen 60 --max_new 96] caption 19/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 500/900 266s
+[GPU0|gen 60 --max_new 96] caption 20/60 done  (75 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 600/900 319s
+[GPU0|gen 60 --max_new 96] caption 21/60 done  (61 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 700/900 372s
+[GPU0|gen 60 --max_new 96] caption 22/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] noise T=999 seed=1 adversarial 800/900 425s
+[GPU0|gen 60 --max_new 96] caption 23/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 1] saved /kaggle/working/egvcd_data/cache_noise/clean_adversarial_T999_s1.npz
+
+[11:02:49 | + 28.2 min] [GPU1] finished 'noise --T 999 --seed 1'
+
+[11:02:49 | + 28.2 min] [GPU1] started 'noise --T 999 --seed 2' on GPU 1
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 0/900 1s
+[GPU0|gen 60 --max_new 96] caption 24/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 100/900 55s
+[GPU0|gen 60 --max_new 96] caption 25/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 200/900 107s
+[GPU0|gen 60 --max_new 96] caption 26/60 done  (77 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 300/900 160s
+[GPU0|gen 60 --max_new 96] caption 27/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 400/900 213s
+[GPU0|gen 60 --max_new 96] caption 28/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 500/900 266s
+[GPU0|gen 60 --max_new 96] caption 29/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 600/900 319s
+[GPU0|gen 60 --max_new 96] caption 30/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 700/900 372s
+[GPU0|gen 60 --max_new 96] caption 31/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 random 800/900 425s
+[GPU0|gen 60 --max_new 96] caption 32/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] saved /kaggle/working/egvcd_data/cache_noise/clean_random_T999_s2.npz
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 0/900 1s
+[GPU0|gen 60 --max_new 96] caption 33/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 100/900 54s
+[GPU0|gen 60 --max_new 96] caption 34/60 done  (75 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 200/900 107s
+[GPU0|gen 60 --max_new 96] caption 35/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 300/900 160s
+[GPU0|gen 60 --max_new 96] caption 36/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 400/900 212s
+[GPU0|gen 60 --max_new 96] caption 37/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 500/900 265s
+[GPU0|gen 60 --max_new 96] caption 38/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 600/900 318s
+[GPU0|gen 60 --max_new 96] caption 39/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 700/900 371s
+[GPU0|gen 60 --max_new 96] caption 40/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 popular 800/900 424s
+[GPU0|gen 60 --max_new 96] caption 41/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] saved /kaggle/working/egvcd_data/cache_noise/clean_popular_T999_s2.npz
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 0/900 1s
+[GPU0|gen 60 --max_new 96] caption 42/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 100/900 54s
+[GPU0|gen 60 --max_new 96] caption 43/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 200/900 106s
+[GPU0|gen 60 --max_new 96] caption 44/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 300/900 160s
+[GPU0|gen 60 --max_new 96] caption 45/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 400/900 213s
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 500/900 266s
+[GPU0|gen 60 --max_new 96] caption 46/60 done  (96 tokens)
+[GPU0|gen 60 --max_new 96] caption 47/60 done  (84 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 600/900 319s
+[GPU0|gen 60 --max_new 96] caption 48/60 done  (90 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 700/900 372s
+[GPU0|gen 60 --max_new 96] caption 49/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] noise T=999 seed=2 adversarial 800/900 425s
+[GPU0|gen 60 --max_new 96] caption 50/60 done  (96 tokens)
+[GPU1|noise --T 999 --seed 2] saved /kaggle/working/egvcd_data/cache_noise/clean_adversarial_T999_s2.npz
+
+[11:26:51 | + 52.2 min] [GPU1] finished 'noise --T 999 --seed 2'
+
+[11:26:51 | + 52.2 min] [GPU1] started 'noise --T 250 --seed 0' on GPU 1
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 0/900 1s
+[GPU0|gen 60 --max_new 96] caption 51/60 done  (96 tokens)
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 100/900 55s
+[GPU0|gen 60 --max_new 96] caption 52/60 done  (96 tokens)
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 200/900 107s
+[GPU0|gen 60 --max_new 96] caption 53/60 done  (96 tokens)
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 300/900 160s
+[GPU0|gen 60 --max_new 96] caption 54/60 done  (96 tokens)
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 400/900 213s
+[GPU0|gen 60 --max_new 96] caption 55/60 done  (96 tokens)
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 500/900 265s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 600/900 318s
+[GPU0|gen 60 --max_new 96] caption 56/60 done  (96 tokens)
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 700/900 371s
+[GPU0|gen 60 --max_new 96] caption 57/60 done  (96 tokens)
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 random 800/900 424s
+[GPU0|gen 60 --max_new 96] caption 58/60 done  (96 tokens)
+[GPU1|noise --T 250 --seed 0] saved /kaggle/working/egvcd_data/cache_noise/clean_random_T250_s0.npz
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 0/900 1s
+[GPU0|gen 60 --max_new 96] caption 59/60 done  (95 tokens)
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 100/900 53s
+[GPU0|gen 60 --max_new 96] caption 60/60 done  (96 tokens)
+[GPU0|gen 60 --max_new 96] VCD vs exact-gated VCD (greedy): identical sequences 57/60; divergences at near-tie steps: [0.0, 0.015625, 0.0]
+[GPU0|gen 60 --max_new 96] VCD vs exact-gated VCD (sample): identical sequences 53/60; divergences at near-tie steps: [0.28125, 0.125, 0.359375, 1.1875, 0.9453125, 0.21875, 0.78125]
+
+[11:36:03 | + 61.4 min] [GPU0] finished 'gen 60 --max_new 96'
+
+[11:36:03 | + 61.4 min] [GPU0] started 'noise --T 500 --seed 0' on GPU 0
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 0/900 1s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 200/900 106s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 100/900 53s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 300/900 159s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 200/900 106s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 400/900 212s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 300/900 160s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 500/900 265s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 400/900 213s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 600/900 318s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 500/900 266s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 700/900 371s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 600/900 320s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 popular 800/900 424s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 700/900 374s
+[GPU1|noise --T 250 --seed 0] saved /kaggle/working/egvcd_data/cache_noise/clean_popular_T250_s0.npz
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 0/900 1s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 random 800/900 428s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 100/900 53s
+[GPU0|noise --T 500 --seed 0] saved /kaggle/working/egvcd_data/cache_noise/clean_random_T500_s0.npz
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 0/900 1s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 200/900 106s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 100/900 54s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 300/900 159s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 200/900 108s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 400/900 212s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 300/900 161s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 500/900 265s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 400/900 215s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 600/900 318s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 500/900 269s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 700/900 371s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 600/900 322s
+[GPU1|noise --T 250 --seed 0] noise T=250 seed=0 adversarial 800/900 423s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 700/900 376s
+[GPU1|noise --T 250 --seed 0] saved /kaggle/working/egvcd_data/cache_noise/clean_adversarial_T250_s0.npz
+
+[11:50:50 | + 76.2 min] [GPU1] finished 'noise --T 250 --seed 0'
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 popular 800/900 431s
+[GPU0|noise --T 500 --seed 0] saved /kaggle/working/egvcd_data/cache_noise/clean_popular_T500_s0.npz
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 0/900 1s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 100/900 57s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 200/900 113s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 300/900 168s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 400/900 224s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 500/900 280s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 600/900 336s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 700/900 392s
+[GPU0|noise --T 500 --seed 0] noise T=500 seed=0 adversarial 800/900 447s
+[GPU0|noise --T 500 --seed 0] saved /kaggle/working/egvcd_data/cache_noise/clean_adversarial_T500_s0.npz
+
+[12:00:43 | + 86.1 min] [GPU0] finished 'noise --T 500 --seed 0'
+
+[12:00:43 | + 86.1 min] STAGE A  analysis (CPU)
+=== 1. CONSISTENCY ACROSS MODELS AND IMAGE SETS (clean, POPE, image-clustered 95% CIs)
+setting                              n_q needs2nd%  skip%        VCD gain sampled         VCD gain greedy   APC%  FYR smp      FYR grd     EG+.5 rho  keep   excess
+LLaVA-1.5-7B, 150 imgs (D1)         2700      36.1   63.9  +3.38 [+2.52,+4.34]  -0.85 [-2.37,+0.81]    49%  11.0->14.5  5.2->14.2   20%  86.3% +0.66
+skippable share across 1 settings: min 63.9%  max 63.9%  | exactness violated in any setting: False
+EG+ (tau=0.5) retains 86.3-86.3% of the VCD gain; lower CI bound of excess over random gating: +0.56
+
+=== 2. ROBUSTNESS TO THE NOISE DRAW AND NOISE STEP (LLaVA-1.5-7B, clean, D1; pass 2 recomputed)
+noise setting           skip%       VCD gain sampled [CI]      VCD gain greedy [CI]  FYR sampled
+T=999 seed 0 (original)   63.9   +3.38 [+2.52,+4.34]    -0.85 [-2.37,+0.81]   11.0->14.5
+T=999 seed 1             63.9   +3.53 [+2.74,+4.44]    -0.93 [-2.52,+0.74]   11.0->14.4
+T=999 seed 2             63.9   +3.44 [+2.56,+4.41]    -0.67 [-2.30,+1.04]   11.0->14.4
+T=500 seed 0             63.9   +1.41 [+0.80,+2.06]    -1.93 [-3.04,-0.74]   11.0->11.1
+T=250 seed 0             63.9   +1.61 [+1.25,+2.00]    -0.70 [-1.52,+0.26]   11.0->9.9
+sampled VCD gain over 3 noise draws at T=999: mean +3.45, sd 0.08
+(the skippable share is identical in every row by construction: it depends on pass 1 only, never on the noise)
+
+=== 3. OPEN-ENDED GENERATION (LLaVA-1.5-7B, captions, measured)
+60 captions, up to 96 new tokens each
+method|mode       ms/caption  tokens  ms/token  steps w/ |V_head|=1  neg-branch calls
+base|greedy          6545±407    94.4      69.3
+vcd|greedy          13037±1051   93.5     139.4                37.4%
+evcd|greedy         10856±861    93.5     116.1                37.6%             62.4%
+vcd|sample          13109±824    94.0     139.4                38.5%
+evcd|sample         10953±596    94.8     115.6                38.4%             61.6%
+VCD vs exact-gated VCD (greedy): 57/60 sequences identical; 5463/5611 tokens agree before the first divergence; margins at divergence (top-2 contrast-logit gap): [0.0, 0.016, 0.0]
+VCD vs exact-gated VCD (sample): 53/60 sequences identical; 5468/5641 tokens agree before the first divergence; margins at divergence (top-2 contrast-logit gap): [0.281, 0.125, 0.359, 1.188, 0.945, 0.219, 0.781]
+MEASURED caption latency saving of the exact gate vs VCD (greedy): 16.7%   (base 6545 ms, VCD 13037 ms, exact gate 10856 ms)
+
+wrote more_numbers.json and more_report.txt
+
+[12:00:44 | + 86.1 min] STAGE A DONE. You can copy the report above and stop here if time is short.
+
+[12:00:44 | + 86.1 min] STAGE B  waiting for the model download to finish ...
+
+[12:00:44 | + 86.1 min] STAGE B  qwen2vl: smoke test (finite fp16 logits, Yes/No answers)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/usr/local/lib/python3.13/dist-packages/transformers/models/qwen2_vl/image_processing_qwen2_vl.py:129: FutureWarning: Passing `min_pixels` and `max_pixels` to a processor call is deprecated and will be removed in v5.23. Pass in `size={'longest_edge': xxx, 'shortest_edge': xxx} to override the target size.`
+  warnings.warn(
+qwen2vl smoke: Q='Is there a snowboard in the image?' label=yes top3=['no', 'Yes', 'No']
+qwen2vl smoke: Q='Is there a car in the image?' label=no top3=['No', 'no', 'Yes']
+qwen2vl smoke: Q='Is there a person in the image?' label=yes top3=['Yes', 'yes', 'No']
+qwen2vl smoke: Q='Is there a sandwich in the image?' label=no top3=['no', 'No', 'yes']
+
+[12:02:02 | + 87.4 min] STAGE B  qwen2vl: caching 100 images, both passes, weights split across both T4s (progress every 50 questions)
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/usr/local/lib/python3.13/dist-packages/transformers/models/qwen2_vl/image_processing_qwen2_vl.py:129: FutureWarning: Passing `min_pixels` and `max_pixels` to a processor call is deprecated and will be removed in v5.23. Pass in `size={'longest_edge': xxx, 'shortest_edge': xxx} to override the target size.`
+  warnings.warn(
+qwen2vl|clean/random 0/600  2s
+qwen2vl|clean/random 50/600  46s
+qwen2vl|clean/random 100/600  88s
+qwen2vl|clean/random 150/600  132s
+qwen2vl|clean/random 200/600  175s
+qwen2vl|clean/random 250/600  219s
+qwen2vl|clean/random 300/600  263s
+qwen2vl|clean/random 350/600  307s
+qwen2vl|clean/random 400/600  350s
+qwen2vl|clean/random 450/600  395s
+qwen2vl|clean/random 500/600  439s
+qwen2vl|clean/random 550/600  482s
+saved /kaggle/working/egvcd_data/cache_qwen2vl/clean_random.npz
+qwen2vl|clean/popular 0/600  1s
+qwen2vl|clean/popular 50/600  45s
+qwen2vl|clean/popular 100/600  89s
+qwen2vl|clean/popular 150/600  134s
+qwen2vl|clean/popular 200/600  179s
+qwen2vl|clean/popular 250/600  224s
+qwen2vl|clean/popular 300/600  269s
+qwen2vl|clean/popular 350/600  312s
+qwen2vl|clean/popular 400/600  357s
+qwen2vl|clean/popular 450/600  402s
+qwen2vl|clean/popular 500/600  446s
+qwen2vl|clean/popular 550/600  490s
+saved /kaggle/working/egvcd_data/cache_qwen2vl/clean_popular.npz
+qwen2vl|clean/adversarial 0/600  1s
+qwen2vl|clean/adversarial 50/600  45s
+qwen2vl|clean/adversarial 100/600  90s
+qwen2vl|clean/adversarial 150/600  135s
+qwen2vl|clean/adversarial 200/600  180s
+qwen2vl|clean/adversarial 250/600  224s
+qwen2vl|clean/adversarial 300/600  269s
+qwen2vl|clean/adversarial 350/600  313s
+qwen2vl|clean/adversarial 400/600  357s
+qwen2vl|clean/adversarial 450/600  402s
+qwen2vl|clean/adversarial 500/600  447s
+qwen2vl|clean/adversarial 550/600  491s
+saved /kaggle/working/egvcd_data/cache_qwen2vl/clean_adversarial.npz
+
+[12:29:48 | +115.2 min] STAGE B  final analysis (CPU)
+=== 1. CONSISTENCY ACROSS MODELS AND IMAGE SETS (clean, POPE, image-clustered 95% CIs)
+setting                              n_q needs2nd%  skip%        VCD gain sampled         VCD gain greedy   APC%  FYR smp      FYR grd     EG+.5 rho  keep   excess
+LLaVA-1.5-7B, 150 imgs (D1)         2700      36.1   63.9  +3.38 [+2.52,+4.34]  -0.85 [-2.37,+0.81]    49%  11.0->14.5  5.2->14.2   20%  86.3% +0.66
+Qwen2-VL-7B, 100 imgs               1800      42.3   57.7  +1.82 [+1.19,+2.45]  -0.44 [-1.67,+0.83]    66%  8.2->6.6  5.1->6.3   34%  93.8% +0.59
+skippable share across 2 settings: min 57.7%  max 63.9%  | exactness violated in any setting: False
+EG+ (tau=0.5) retains 86.3-93.8% of the VCD gain; lower CI bound of excess over random gating: +0.51
+
+=== 2. ROBUSTNESS TO THE NOISE DRAW AND NOISE STEP (LLaVA-1.5-7B, clean, D1; pass 2 recomputed)
+noise setting           skip%       VCD gain sampled [CI]      VCD gain greedy [CI]  FYR sampled
+T=999 seed 0 (original)   63.9   +3.38 [+2.52,+4.34]    -0.85 [-2.37,+0.81]   11.0->14.5
+T=999 seed 1             63.9   +3.53 [+2.74,+4.44]    -0.93 [-2.52,+0.74]   11.0->14.4
+T=999 seed 2             63.9   +3.44 [+2.56,+4.41]    -0.67 [-2.30,+1.04]   11.0->14.4
+T=500 seed 0             63.9   +1.41 [+0.80,+2.06]    -1.93 [-3.04,-0.74]   11.0->11.1
+T=250 seed 0             63.9   +1.61 [+1.25,+2.00]    -0.70 [-1.52,+0.26]   11.0->9.9
+sampled VCD gain over 3 noise draws at T=999: mean +3.45, sd 0.08
+(the skippable share is identical in every row by construction: it depends on pass 1 only, never on the noise)
+
+=== 3. OPEN-ENDED GENERATION (LLaVA-1.5-7B, captions, measured)
+60 captions, up to 96 new tokens each
+method|mode       ms/caption  tokens  ms/token  steps w/ |V_head|=1  neg-branch calls
+base|greedy          6545±407    94.4      69.3
+vcd|greedy          13037±1051   93.5     139.4                37.4%
+evcd|greedy         10856±861    93.5     116.1                37.6%             62.4%
+vcd|sample          13109±824    94.0     139.4                38.5%
+evcd|sample         10953±596    94.8     115.6                38.4%             61.6%
+VCD vs exact-gated VCD (greedy): 57/60 sequences identical; 5463/5611 tokens agree before the first divergence; margins at divergence (top-2 contrast-logit gap): [0.0, 0.016, 0.0]
+VCD vs exact-gated VCD (sample): 53/60 sequences identical; 5468/5641 tokens agree before the first divergence; margins at divergence (top-2 contrast-logit gap): [0.281, 0.125, 0.359, 1.188, 0.945, 0.219, 0.781]
+MEASURED caption latency saving of the exact gate vs VCD (greedy): 16.7%   (base 6545 ms, VCD 13037 ms, exact gate 10856 ms)
+
+wrote more_numbers.json and more_report.txt
+
+[12:29:48 | +115.2 min] packaging
+
+[12:29:49 | +115.2 min] ALL DONE.  Send me the full report printed above (or /kaggle/working/egvcd_data/more_report.txt) + /kaggle/working/more_results.zip

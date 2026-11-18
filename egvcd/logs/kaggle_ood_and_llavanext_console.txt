@@ -1,0 +1,191 @@
+[13:00:41 | +  0.0 min] STEP 0  checking GPUs
+GPU 0: Tesla T4 (UUID: GPU-1590f9b7-df8b-2197-7606-a35a188578f3)
+GPU 1: Tesla T4 (UUID: GPU-c4a695bc-93c6-7391-a4f0-01e0e6f7bbd7)
+
+
+[13:00:41 | +  0.0 min] STEP 0  installing libraries
+found earlier results: LLaVA-7B original 12/12, held-out 0/3, 13B 0/3, Qwen2-VL 0/3  (optional; only used for the comparison table)
+
+[13:00:45 | +  0.1 min] STEP 1  POPE images (150) - needed so the earlier caches can be read
+random 900 questions
+popular 900 questions
+adversarial 900 questions
+images: 150
+
+[13:00:45 | +  0.1 min] STEP 1  downloading llava-1.5-7b-hf (~14 GB)
+7B at /root/.cache/huggingface/hub/models--llava-hf--llava-1.5-7b-hf/snapshots/b234b804b114d9e37bb655e11cbbb5f5e971b7a9
+
+[13:00:48 | +  0.1 min] STAGE A  fetching a real-domain (out-of-distribution) dataset
+trying attached Kaggle inputs ...
+trying Hugging Face dataset Marcel031/dior
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  loaded Marcel031/dior split=train
+  using the 20 DIOR class names from the dataset README
+  example keys: {'image_id': 'int', 'image': 'Image', 'width': 'int', 'height': 'int', 'objects': 'dict'}
+  objects keys / first values: {'bbox_id': [17177, 17178], 'category': [17, 4], 'bbox': [[310, 254, 91, 303], [533, 377, 24, 32]], 'area': [27875, 791]} | class names known: True
+  scanned 500, kept 46
+  scanned 1000, kept 110
+  scanned 1500, kept 156
+  scanned 2000, kept 206
+  scanned 2500, kept 256
+  Marcel031/dior: scanned 2994, kept 300 images with >=3 classes
+FETCH OK from Hugging Face Marcel031/dior: 300 images, 19 classes: ['Airplane', 'Airport', 'Baseball field', 'Basketball court', 'Bridge', 'Chimney', 'Dam', 'Expressway service area', 'Expressway toll station', 'Golf course', 'Ground track field', 'Harbor', 'Overpass', 'Ship', 'Stadium', 'Storage tank', 'Tennis court', 'Train station', 'Vehicle']
+
+[13:01:26 | +  0.7 min] STAGE A  building POPE-style questions from it (100 images, 3 present + 3 absent objects per image per split)
+used 100 of the requested 100 images (images need >=3 object classes, >=3 absent classes, and a file in images_dir)
+random OOD questions: 600
+popular OOD questions: 600
+adversarial OOD questions: 600
+next: python egvcd_solid.py cache2 --cond clean --suffix _ood --outdir cache
+
+[13:01:26 | +  0.7 min] STAGE B  LLaVA-1.5-7B on the real-domain questions (VCD pass + noised pass for each question; ~40 min on one T4)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+llava-1.5-7b-hf|clean/random_ood 0/600  5s
+llava-1.5-7b-hf|clean/random_ood 50/600  52s
+llava-1.5-7b-hf|clean/random_ood 100/600  104s
+llava-1.5-7b-hf|clean/random_ood 150/600  158s
+llava-1.5-7b-hf|clean/random_ood 200/600  212s
+llava-1.5-7b-hf|clean/random_ood 250/600  266s
+llava-1.5-7b-hf|clean/random_ood 300/600  319s
+llava-1.5-7b-hf|clean/random_ood 350/600  373s
+llava-1.5-7b-hf|clean/random_ood 400/600  427s
+llava-1.5-7b-hf|clean/random_ood 450/600  481s
+llava-1.5-7b-hf|clean/random_ood 500/600  534s
+llava-1.5-7b-hf|clean/random_ood 550/600  588s
+saved /kaggle/working/egvcd_data/cache/clean_random_ood.npz
+llava-1.5-7b-hf|clean/popular_ood 0/600  1s
+llava-1.5-7b-hf|clean/popular_ood 50/600  55s
+llava-1.5-7b-hf|clean/popular_ood 100/600  109s
+llava-1.5-7b-hf|clean/popular_ood 150/600  162s
+llava-1.5-7b-hf|clean/popular_ood 200/600  216s
+llava-1.5-7b-hf|clean/popular_ood 250/600  270s
+llava-1.5-7b-hf|clean/popular_ood 300/600  324s
+llava-1.5-7b-hf|clean/popular_ood 350/600  377s
+llava-1.5-7b-hf|clean/popular_ood 400/600  431s
+llava-1.5-7b-hf|clean/popular_ood 450/600  485s
+llava-1.5-7b-hf|clean/popular_ood 500/600  539s
+llava-1.5-7b-hf|clean/popular_ood 550/600  592s
+saved /kaggle/working/egvcd_data/cache/clean_popular_ood.npz
+llava-1.5-7b-hf|clean/adversarial_ood 0/600  1s
+llava-1.5-7b-hf|clean/adversarial_ood 50/600  55s
+llava-1.5-7b-hf|clean/adversarial_ood 100/600  109s
+llava-1.5-7b-hf|clean/adversarial_ood 150/600  162s
+llava-1.5-7b-hf|clean/adversarial_ood 200/600  216s
+llava-1.5-7b-hf|clean/adversarial_ood 250/600  270s
+llava-1.5-7b-hf|clean/adversarial_ood 300/600  323s
+llava-1.5-7b-hf|clean/adversarial_ood 350/600  377s
+llava-1.5-7b-hf|clean/adversarial_ood 400/600  431s
+llava-1.5-7b-hf|clean/adversarial_ood 450/600  485s
+llava-1.5-7b-hf|clean/adversarial_ood 500/600  538s
+llava-1.5-7b-hf|clean/adversarial_ood 550/600  592s
+saved /kaggle/working/egvcd_data/cache/clean_adversarial_ood.npz
+
+[13:34:42 | + 34.0 min] STAGE B  report (the row 'LLaVA-1.5-7B, bring-your-own OOD set' is the new real-domain result)
+=== 1. CONSISTENCY ACROSS MODELS AND IMAGE SETS (clean, POPE, image-clustered 95% CIs)
+setting                                  n_q needs2nd%  skip%        VCD gain sampled         VCD gain greedy   APC%  FYR smp      FYR grd     EG+.5 rho  keep   excess
+LLaVA-1.5-7B, 150 imgs (D1)         2700      36.1   63.9  +3.38 [+2.52,+4.34]  -0.85 [-2.37,+0.81]    49%  11.0->14.5  5.2->14.2   20%  86.3% +0.66
+LLaVA-1.5-7B, bring-your-own OOD set  1800      65.9   34.1  +2.75 [+1.53,+4.03]  -0.67 [-2.94,+1.72]    39%  30.3->44.8  26.4->45.2   41%  78.8% +0.38
+skippable share across 2 settings: min 34.1%  max 63.9% | exactness violated in any: False
+
+=== 2. alpha / beta SWEEP ON EVERY DATASET (offline). exact = max|p_exact-gated - p_VCD|; accuracies in %, FYR = false-yes rate
+setting                                alpha  beta  skip%  exact   VCD acc smp/grd   base acc smp/grd   VCD FYR smp   base FYR smp/grd
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.1   63.9  0e+00    85.35/85.89       81.97/86.74            14.5       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.2   76.9  0e+00    85.92/86.15       81.97/86.74            12.7       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.5   89.6  0e+00    86.44/86.56       81.97/86.74             9.3       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              0.5   0.5   89.6  0e+00    86.27/86.74       81.97/86.74             8.4       11.0/5.2
+LLaVA-1.5-7B, bring-your-own OOD set     1.0   0.1   34.1  0e+00    71.90/72.78       69.15/73.44            44.8       30.3/26.4
+LLaVA-1.5-7B, bring-your-own OOD set     1.0   0.2   53.9  0e+00    73.21/73.17       69.15/73.44            41.3       30.3/26.4
+LLaVA-1.5-7B, bring-your-own OOD set     1.0   0.5   78.8  0e+00    74.04/73.78       69.15/73.44            35.7       30.3/26.4
+LLaVA-1.5-7B, bring-your-own OOD set     0.5   0.5   78.8  0e+00    73.96/73.72       69.15/73.44            33.0       30.3/26.4
+
+=== 3. VCD UNDER IMAGE DEGRADATION, PER MODEL (sampled gain over the sampled baseline, image-clustered 95% CI)
+model           condition  base acc  skip%        VCD gain sampled         VCD gain greedy   FYR base->VCD (smp)
+LLaVA-1.5-7B    clean         81.97   63.9   +3.38 [+2.52,+4.34]    -0.85 [-2.37,+0.81]      11.0 -> 14.5
+LLaVA-1.5-7B    lowlight      80.21   63.7   +3.83 [+2.71,+5.01]    +0.56 [-1.41,+2.63]      10.8 -> 18.1
+LLaVA-1.5-7B    noise         80.95   64.3   +3.49 [+2.60,+4.55]    -0.30 [-2.04,+1.59]      10.6 -> 14.1
+LLaVA-1.5-7B    blur          78.38   62.3   +4.92 [+3.80,+6.05]    +1.30 [-0.63,+3.26]       9.9 -> 15.4
+
+wrote quality_numbers.json and quality_report.txt
+
+[13:34:42 | + 34.0 min] saved /kaggle/working/ood_results.zip  (after real-domain stage)
+
+[13:34:42 | + 34.0 min] STAGE C  LLaVA-NeXT-Mistral-7B on COCO POPE, 100 images, weights split across both T4s (download ~15 GB, then ~50 min)
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/usr/local/lib/python3.13/dist-packages/accelerate/utils/modeling.py:1598: UserWarning: The following device_map keys do not match any submodules in the model: ['model.image_newline']
+  warnings.warn(
+llavanext|clean/random 0/600  7s
+llavanext|clean/random 50/600  347s
+llavanext|clean/random 100/600  714s
+llavanext|clean/random 150/600  1106s
+llavanext|clean/random 200/600  1463s
+llavanext|clean/random 250/600  1833s
+llavanext|clean/random 300/600  2254s
+llavanext|clean/random 350/600  2656s
+llavanext|clean/random 400/600  3049s
+llavanext|clean/random 450/600  3431s
+llavanext|clean/random 500/600  3871s
+llavanext|clean/random 550/600  4272s
+saved /kaggle/working/egvcd_data/cache_llavanext/clean_random.npz
+llavanext|clean/popular 0/600  7s
+llavanext|clean/popular 50/600  368s
+llavanext|clean/popular 100/600  734s
+llavanext|clean/popular 150/600  1127s
+llavanext|clean/popular 200/600  1484s
+llavanext|clean/popular 250/600  1855s
+llavanext|clean/popular 300/600  2276s
+llavanext|clean/popular 350/600  2677s
+llavanext|clean/popular 400/600  3072s
+llavanext|clean/popular 450/600  3454s
+llavanext|clean/popular 500/600  3895s
+llavanext|clean/popular 550/600  4295s
+saved /kaggle/working/egvcd_data/cache_llavanext/clean_popular.npz
+llavanext|clean/adversarial 0/600  7s
+llavanext|clean/adversarial 50/600  368s
+llavanext|clean/adversarial 100/600  733s
+llavanext|clean/adversarial 150/600  1126s
+llavanext|clean/adversarial 200/600  1483s
+llavanext|clean/adversarial 250/600  1855s
+llavanext|clean/adversarial 300/600  2276s
+llavanext|clean/adversarial 350/600  2678s
+llavanext|clean/adversarial 400/600  3073s
+llavanext|clean/adversarial 450/600  3455s
+llavanext|clean/adversarial 500/600  3895s
+llavanext|clean/adversarial 550/600  4296s
+saved /kaggle/working/egvcd_data/cache_llavanext/clean_adversarial.npz
+
+[17:28:21 | +267.7 min] STAGE C  final report
+=== 1. CONSISTENCY ACROSS MODELS AND IMAGE SETS (clean, POPE, image-clustered 95% CIs)
+setting                                  n_q needs2nd%  skip%        VCD gain sampled         VCD gain greedy   APC%  FYR smp      FYR grd     EG+.5 rho  keep   excess
+LLaVA-1.5-7B, 150 imgs (D1)         2700      36.1   63.9  +3.38 [+2.52,+4.34]  -0.85 [-2.37,+0.81]    49%  11.0->14.5  5.2->14.2   20%  86.3% +0.66
+LLaVA-NeXT-7B, 100 imgs             1800      24.0   76.0  +3.43 [+2.44,+4.40]  +1.06 [-0.67,+2.83]    32%  6.2->9.1  3.9->9.1   14%  88.8% +0.75
+LLaVA-1.5-7B, bring-your-own OOD set  1800      65.9   34.1  +2.75 [+1.53,+4.03]  -0.67 [-2.94,+1.72]    39%  30.3->44.8  26.4->45.2   41%  78.8% +0.38
+skippable share across 3 settings: min 34.1%  max 76.0% | exactness violated in any: False
+
+=== 2. alpha / beta SWEEP ON EVERY DATASET (offline). exact = max|p_exact-gated - p_VCD|; accuracies in %, FYR = false-yes rate
+setting                                alpha  beta  skip%  exact   VCD acc smp/grd   base acc smp/grd   VCD FYR smp   base FYR smp/grd
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.1   63.9  0e+00    85.35/85.89       81.97/86.74            14.5       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.2   76.9  0e+00    85.92/86.15       81.97/86.74            12.7       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              1.0   0.5   89.6  0e+00    86.44/86.56       81.97/86.74             9.3       11.0/5.2
+LLaVA-1.5-7B, 150 imgs (D1)              0.5   0.5   89.6  0e+00    86.27/86.74       81.97/86.74             8.4       11.0/5.2
+LLaVA-NeXT-7B, 100 imgs                  1.0   0.1   76.0  0e+00    89.94/90.11       86.51/89.06             9.1        6.2/3.9
+LLaVA-NeXT-7B, 100 imgs                  1.0   0.2   83.7  0e+00    90.34/90.17       86.51/89.06             7.4        6.2/3.9
+LLaVA-NeXT-7B, 100 imgs                  1.0   0.5   92.1  0e+00    90.51/90.61       86.51/89.06             4.9        6.2/3.9
+LLaVA-NeXT-7B, 100 imgs                  0.5   0.5   92.1  0e+00    90.04/90.61       86.51/89.06             4.6        6.2/3.9
+LLaVA-1.5-7B, bring-your-own OOD set     1.0   0.1   34.1  0e+00    71.90/72.78       69.15/73.44            44.8       30.3/26.4
+LLaVA-1.5-7B, bring-your-own OOD set     1.0   0.2   53.9  0e+00    73.21/73.17       69.15/73.44            41.3       30.3/26.4
+LLaVA-1.5-7B, bring-your-own OOD set     1.0   0.5   78.8  0e+00    74.04/73.78       69.15/73.44            35.7       30.3/26.4
+LLaVA-1.5-7B, bring-your-own OOD set     0.5   0.5   78.8  0e+00    73.96/73.72       69.15/73.44            33.0       30.3/26.4
+
+=== 3. VCD UNDER IMAGE DEGRADATION, PER MODEL (sampled gain over the sampled baseline, image-clustered 95% CI)
+model           condition  base acc  skip%        VCD gain sampled         VCD gain greedy   FYR base->VCD (smp)
+LLaVA-1.5-7B    clean         81.97   63.9   +3.38 [+2.52,+4.34]    -0.85 [-2.37,+0.81]      11.0 -> 14.5
+LLaVA-1.5-7B    lowlight      80.21   63.7   +3.83 [+2.71,+5.01]    +0.56 [-1.41,+2.63]      10.8 -> 18.1
+LLaVA-1.5-7B    noise         80.95   64.3   +3.49 [+2.60,+4.55]    -0.30 [-2.04,+1.59]      10.6 -> 14.1
+LLaVA-1.5-7B    blur          78.38   62.3   +4.92 [+3.80,+6.05]    +1.30 [-0.63,+3.26]       9.9 -> 15.4
+LLaVA-NeXT-7B   clean         86.51   76.0   +3.43 [+2.44,+4.40]    +1.06 [-0.67,+2.83]       6.2 -> 9.1
+
+wrote quality_numbers.json and quality_report.txt
+
+[17:28:21 | +267.7 min] saved /kaggle/working/ood_results.zip  (final)
+
+[17:28:21 | +267.7 min] ALL DONE.  Send me the full report printed above (look for the OOD row and the LLaVA-NeXT row) + /kaggle/working/ood_results.zip
