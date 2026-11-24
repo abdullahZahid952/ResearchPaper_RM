@@ -1,0 +1,152 @@
+{
+ "B=1 | plain model (1 pass)": {
+  "batch": 1,
+  "method": "plain model (1 pass)",
+  "ms_per_q": 505.2550974799987,
+  "p50": 502.60657600000513,
+  "p95": 578.0033143499793,
+  "q_per_s": 1.9791982406265307,
+  "peak_mem_gb": 13.360986709594727,
+  "extra_mem_gb": 0.06733322143554688,
+  "second_pass_share": 0.0
+ },
+ "B=1 | VCD sequential (2 passes)": {
+  "batch": 1,
+  "method": "VCD sequential (2 passes)",
+  "ms_per_q": 1119.0515310750009,
+  "p50": 1118.3778650000136,
+  "p95": 1138.2916824999938,
+  "q_per_s": 0.8936138973326494,
+  "peak_mem_gb": 13.361737251281738,
+  "extra_mem_gb": 0.06808328628540039,
+  "second_pass_share": 1.0,
+  "answers_differing_from_batched_VCD": 0
+ },
+ "B=1 | VCD batched (both images in one batch)": {
+  "batch": 1,
+  "method": "VCD batched (both images in one batch)",
+  "ms_per_q": 981.5289508599966,
+  "p50": 980.8201854999652,
+  "p95": 991.3410298999793,
+  "q_per_s": 1.0188186493366491,
+  "peak_mem_gb": 13.429304122924805,
+  "extra_mem_gb": 0.1356501579284668,
+  "second_pass_share": 1.0
+ },
+ "B=1 | exact gate (skip 2nd pass when provably redundant)": {
+  "batch": 1,
+  "method": "exact gate (skip 2nd pass when provably redundant)",
+  "ms_per_q": 758.3514289450051,
+  "p50": 562.2833190000165,
+  "p95": 1124.852507950095,
+  "q_per_s": 1.3186498526035204,
+  "peak_mem_gb": 13.361748218536377,
+  "extra_mem_gb": 0.06809425354003906,
+  "second_pass_share": 0.355,
+  "answers_differing_from_batched_VCD": 0
+ },
+ "B=4 | plain model (1 pass)": {
+  "batch": 4,
+  "method": "plain model (1 pass)",
+  "ms_per_q": 479.29691034506504,
+  "p50": 481.7471892501999,
+  "p95": 489.84612573756294,
+  "q_per_s": 2.0863894141943455,
+  "peak_mem_gb": 13.563386917114258,
+  "extra_mem_gb": 0.2698249816894531,
+  "second_pass_share": 0.0
+ },
+ "B=4 | VCD sequential (2 passes)": {
+  "batch": 4,
+  "method": "VCD sequential (2 passes)",
+  "ms_per_q": 982.8237072550018,
+  "p50": 982.6623623750947,
+  "p95": 1001.0349192623607,
+  "q_per_s": 1.0174764737747026,
+  "peak_mem_gb": 13.566388130187988,
+  "extra_mem_gb": 0.2728257179260254,
+  "second_pass_share": 1.0,
+  "answers_differing_from_batched_VCD": 0
+ },
+ "B=4 | VCD batched (both images in one batch)": {
+  "batch": 4,
+  "method": "VCD batched (both images in one batch)",
+  "ms_per_q": 968.6725841300084,
+  "p50": 968.8695771249058,
+  "p95": 978.2540119252417,
+  "q_per_s": 1.0323405621086381,
+  "peak_mem_gb": 13.838036060333252,
+  "extra_mem_gb": 0.5444736480712891,
+  "second_pass_share": 1.0
+ },
+ "B=4 | exact gate (skip 2nd pass when provably redundant)": {
+  "batch": 4,
+  "method": "exact gate (skip 2nd pass when provably redundant)",
+  "ms_per_q": 676.5260299399869,
+  "p50": 739.2654638751992,
+  "p95": 753.6829565875678,
+  "q_per_s": 1.4781397252204878,
+  "peak_mem_gb": 13.563386917114258,
+  "extra_mem_gb": 0.2698245048522949,
+  "second_pass_share": 0.355,
+  "answers_differing_from_batched_VCD": 0
+ },
+ "B=8 | plain model (1 pass)": {
+  "batch": 8,
+  "method": "plain model (1 pass)",
+  "ms_per_q": 487.7530016899959,
+  "p50": 487.48206637500857,
+  "p95": 493.3821919499849,
+  "q_per_s": 2.0502180335849083,
+  "peak_mem_gb": 13.832915782928467,
+  "extra_mem_gb": 0.5393533706665039,
+  "second_pass_share": 0.0
+ },
+ "B=8 | VCD sequential (2 passes)": {
+  "batch": 8,
+  "method": "VCD sequential (2 passes)",
+  "ms_per_q": 979.9221544249998,
+  "p50": 980.9877621249825,
+  "p95": 987.9468787250062,
+  "q_per_s": 1.0204892250719462,
+  "peak_mem_gb": 13.838918209075928,
+  "extra_mem_gb": 0.5453557968139648,
+  "second_pass_share": 1.0
+ },
+ "B=8 | VCD batched (both images in one batch)": {
+  "batch": 8,
+  "method": "VCD batched (both images in one batch)",
+  "oom": true
+ },
+ "B=8 | exact gate (skip 2nd pass when provably redundant)": {
+  "batch": 8,
+  "method": "exact gate (skip 2nd pass when provably redundant)",
+  "ms_per_q": 677.9667183099991,
+  "p50": 693.5579048750071,
+  "p95": 744.3834247749976,
+  "q_per_s": 1.4749986584780284,
+  "peak_mem_gb": 13.832915782928467,
+  "extra_mem_gb": 0.5393533706665039,
+  "second_pass_share": 0.355
+ },
+ "B=16 | plain model (1 pass)": {
+  "batch": 16,
+  "method": "plain model (1 pass)",
+  "oom": true
+ },
+ "B=16 | VCD sequential (2 passes)": {
+  "batch": 16,
+  "method": "VCD sequential (2 passes)",
+  "oom": true
+ },
+ "B=16 | VCD batched (both images in one batch)": {
+  "batch": 16,
+  "method": "VCD batched (both images in one batch)",
+  "oom": true
+ },
+ "B=16 | exact gate (skip 2nd pass when provably redundant)": {
+  "batch": 16,
+  "method": "exact gate (skip 2nd pass when provably redundant)",
+  "oom": true
+ }
+}

@@ -1,0 +1,20 @@
+=== FULL POPE-COCO, LLaVA-1.5-7B, clean images: 9000 questions, 500 images (image-clustered 95% bootstrap CIs, 2000 resamples)
+EXACT GATE: the second (noised-image) pass is skippable for 63.7% of questions  [95% CI 62.0, 65.2]
+   forward passes per question: VCD 2.00 -> exact gate 1.36  (-31.8% of all forward passes, no change in output)
+   max |p_E-VCD - p_VCD| = 0.0e+00;  greedy outputs identical on every question: True
+accuracy (expected, sampled): base 81.28 | APC-only 82.94 | VCD 84.51
+VCD gain sampled +3.23 [+2.76,+3.68] | APC-only gain +1.66 [+1.58,+1.73] | greedy gain -0.78 [-1.69,+0.13]
+false-yes rate (sample): base 11.0% -> VCD 15.2%  (diff +4.2 [+3.6,+4.8])
+false-yes rate (greedy): base 5.7% -> VCD 15.2%  (diff +9.5 [+8.4,+10.6])
+EG+ tau=0.4: second pass for 28% | keeps 91.5% of VCD gain | excess over random gating +0.638 [+0.599,+0.672]
+EG+ tau=0.5: second pass for 21% | keeps 87.5% of VCD gain | excess over random gating +0.669 [+0.612,+0.726]
+
+=== per POPE split
+random       n= 3000  skippable  68.0% | acc base 83.23 VCD 87.66 | sampled gain +4.43 [+3.88,+4.96] | greedy gain +1.13 | EG+.5 17% / keeps 88%
+popular      n= 3000  skippable  65.0% | acc base 81.72 VCD 85.15 | sampled gain +3.44 [+2.85,+3.99] | greedy gain -0.33 | EG+.5 20% / keeps 90%
+adversarial  n= 3000  skippable  58.0% | acc base 78.89 VCD 80.71 | sampled gain +1.82 [+1.22,+2.40] | greedy gain -3.13 | EG+.5 25% / keeps 80%
+
+=== does the result depend on sample size?  (first n images; same questions as the smaller experiments are nested inside)
+n=150 images (2700 q): skippable 63.9% [61.3,66.5] | sampled gain +3.38 [+2.51,+4.31] | greedy gain -0.85 | EG+.5 20% keeps 86%
+n=300 images (5400 q): skippable 63.2% [61.2,65.3] | sampled gain +3.26 [+2.68,+3.85] | greedy gain -1.00 | EG+.5 21% keeps 88%
+n=500 images (9000 q): skippable 63.7% [62.0,65.1] | sampled gain +3.23 [+2.77,+3.68] | greedy gain -0.78 | EG+.5 21% keeps 87%

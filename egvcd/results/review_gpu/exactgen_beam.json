@@ -1,0 +1,9 @@
+{
+ "n": 12,
+ "identical": 12,
+ "max_score_diff": 0.0,
+ "steps": 815,
+ "singleton_steps": 312,
+ "neg_vcd": 815,
+ "neg_gate": 503
+}

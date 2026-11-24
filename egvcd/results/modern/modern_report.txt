@@ -1,0 +1,18 @@
+=== MODERN MODELS: exact gate on POPE-COCO (clean images; image-clustered 95% CIs)
+model                       n_q   skippable%  [95% CI]        mean top-1 p | VCD sampled gain [CI]   | greedy gain [CI]      | EG+.5 rho/GR | passes saved%
+qwen3vl_4b               1800     84.1   [81.3,86.8]    0.946      | +1.38 [+0.63,+2.16] | +1.22 [+0.17,+2.33] | 12% / 88%  | 42.0
+   exact check: max|p_E-VCD - p_VCD| = 0.0e+00; greedy identical: True; accuracy base 89.8 / VCD 91.2; false-yes 3.8% -> 4.5%   [Qwen/Qwen3-VL-4B-Instruct, float16]
+qwen35_4b                1800     67.1   [63.2,70.9]    0.899      | +1.89 [+1.45,+2.33] | -0.11 [-1.06,+0.89] | 22% / 80%  | 33.5
+   exact check: max|p_E-VCD - p_VCD| = 0.0e+00; greedy identical: True; accuracy base 88.1 / VCD 90.0; false-yes 7.1% -> 5.8%   [Qwen/Qwen3.5-4B, float16]
+gemma4_e4b               1800     93.6   [91.8,95.2]    0.974      | +0.49 [-0.36,+1.32] | +0.67 [-0.56,+1.89] | 5% / 95%  | 46.8
+   exact check: max|p_E-VCD - p_VCD| = 0.0e+00; greedy identical: True; accuracy base 87.2 / VCD 87.7; false-yes 9.7% -> 12.0%   [google/gemma-4-E4B-it, float16]
+
+earlier models, same protocol (from the main paper):  LLaVA-1.5-7B (2023): 63.9%; LLaVA-NeXT-Mistral-7B (2024): 76.0%; Qwen2-VL-7B (2024): 57.7%
+
+=== FREE-FORM GENERATION: share of decoding steps where the VCD head has a single token (a negative pass there is provably wasted)
+  measured along the base model's own greedy trajectory, one pass only; 'Describe this image in detail.'
+qwen3vl_4b              53.9% of 5760 steps  [95% CI 52.5, 55.4]  (60 images)
+qwen35_4b               56.9% of 5760 steps  [95% CI 55.4, 58.3]  (60 images)
+gemma4_e4b              51.0% of 5760 steps  [95% CI 49.4, 52.5]  (60 images)
+
+wrote modern_numbers.json and modern_report.txt
