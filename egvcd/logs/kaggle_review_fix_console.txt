@@ -1,0 +1,58 @@
+[07:41:40 | +  0.0 min] [GPU0] START Q5 exactness, sampling
+
+[07:42:25 | +  0.8 min] [GPU1] START Q5 exactness, beam search
+[GPU0] exactgen|sample 1/20 identical so far 1/1  54s
+[GPU1] exactgen|beam 1/12 identical so far 1/1  119s
+[GPU0] exactgen|sample 6/20 identical so far 6/6  298s
+[GPU0] exactgen|sample 11/20 identical so far 11/11  539s
+[GPU0] exactgen|sample 16/20 identical so far 16/16  783s
+[GPU1] exactgen|beam 6/12 identical so far 6/6  782s
+[GPU0] sample: identical 20/20 | negative passes VCD 480 vs gate 298 (37.9% saved)
+
+[07:58:32 | + 16.9 min] [GPU0] DONE  Q5 exactness, sampling
+
+[07:58:32 | + 16.9 min] [GPU0] START Q7 benchmark at batch size 4
+[GPU0] B= 4 plain model (1 pass)                                   479.3 ms/q  p95   489.8   2.09 q/s  peak 13.56 GB (+0.27)  2nd pass 0%
+[GPU0] B= 4 VCD sequential (2 passes)                              982.8 ms/q  p95  1001.0   1.02 q/s  peak 13.57 GB (+0.27)  2nd pass 100%
+[GPU1] exactgen|beam 11/12 identical so far 11/11  1456s
+[GPU0] B= 4 VCD batched (both images in one batch)                 968.7 ms/q  p95   978.3   1.03 q/s  peak 13.84 GB (+0.54)  2nd pass 100%
+[GPU1] beam: identical 12/12 | negative passes VCD 815 vs gate 503 (38.3% saved)
+
+[08:09:16 | + 27.6 min] [GPU1] DONE  Q5 exactness, beam search
+[GPU0] B= 4 exact gate (skip 2nd pass when provably redundant)     676.5 ms/q  p95   753.7   1.48 q/s  peak 13.56 GB (+0.27)  2nd pass 36%
+
+[08:09:21 | + 27.7 min] [GPU0] DONE  Q7 benchmark at batch size 4
+
+[08:09:21 | + 27.7 min] FINAL REPORT
+=== Q7/Q10  DEPLOYMENT BENCHMARK  (LLaVA-1.5-7B, POPE, one T4, fp16; preprocessing excluded, identical for all methods)
+batch method                                               ms/question      p95    q/s  peak GB 2nd pass  answers != batched VCD
+1     plain model (1 pass)                                       505.3    578.0   1.98    13.36       0%
+1     VCD sequential (2 passes)                                 1119.1   1138.3   0.89    13.36     100%  0
+1     VCD batched (both images in one batch)                     981.5    991.3   1.02    13.43     100%
+1     exact gate (skip 2nd pass when provably redundant)         758.4   1124.9   1.32    13.36      36%  0
+4     plain model (1 pass)                                       479.3    489.8   2.09    13.56       0%
+4     VCD sequential (2 passes)                                  982.8   1001.0   1.02    13.57     100%  0
+4     VCD batched (both images in one batch)                     968.7    978.3   1.03    13.84     100%
+4     exact gate (skip 2nd pass when provably redundant)         676.5    753.7   1.48    13.56      36%  0
+8     plain model (1 pass)                                       487.8    493.4   2.05    13.83       0%
+8     VCD sequential (2 passes)                                  979.9    987.9   1.02    13.84     100%
+8     VCD batched (both images in one batch)               OUT OF MEMORY
+8     exact gate (skip 2nd pass when provably redundant)         678.0    744.4   1.47    13.83      36%
+16    plain model (1 pass)                                 OUT OF MEMORY
+16    VCD sequential (2 passes)                            OUT OF MEMORY
+16    VCD batched (both images in one batch)               OUT OF MEMORY
+16    exact gate (skip 2nd pass when provably redundant)   OUT OF MEMORY
+
+=== Q5  EXACTNESS IN FREE-FORM GENERATION  (captions, full recompute, negative branch computed identically in both)
+greedy  identical captions 20/20 | max beam-score diff 0.0e+00 | negative passes: VCD 480 vs gate 297 (38.1% fewer)
+sample  identical captions 20/20 | max beam-score diff 0.0e+00 | negative passes: VCD 480 vs gate 298 (37.9% fewer)
+beam    identical captions 12/12 | max beam-score diff 0.0e+00 | negative passes: VCD 815 vs gate 503 (38.3% fewer)
+
+=== Q8  MORE DATA / NEW DATASETS  (exact gate on POPE; image-clustered 95% CIs)
+llava7b_aokvqa          3600 q / 200 img | skippable  54.5% | exact 0e+00 | base 79.0 VCD 80.8 | sampled gain +1.81 [+1.17,+2.43] (APC-only +1.66) | greedy gain -2.47 [-3.64,-1.22]
+qwen3vl_4b_aokvqa       3600 q / 200 img | skippable  79.2% | exact 0e+00 | base 89.2 VCD 89.2 | sampled gain +0.05 [-0.50,+0.63] (APC-only +0.14) | greedy gain -0.11 [-0.92,+0.72]
+qwen3vl_4b_coco         5400 q / 300 img | skippable  82.9% | exact 0e+00 | base 89.0 VCD 89.6 | sampled gain +0.66 [+0.19,+1.11] (APC-only +0.15) | greedy gain +0.33 [-0.33,+1.00]
+
+wrote review/review_gpu_numbers.json and review/review_gpu_report.txt
+
+[08:09:23 | + 27.7 min] ALL DONE. Send me the FINAL REPORT above + /kaggle/working/review_results.zip (Output tab)

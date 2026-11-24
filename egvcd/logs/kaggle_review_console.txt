@@ -1,0 +1,325 @@
+[05:26:20 | +  0.0 min] STEP 0  GPUs + libraries
+GPU 0: Tesla T4 (UUID: GPU-6aeb4bab-7ccb-cf24-ba48-69017c7072d9)
+GPU 1: Tesla T4 (UUID: GPU-52073c91-491d-b0a0-397e-4a91cabd862e)
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+ydata-profiling 4.18.4 requires scipy<1.17,>=1.8, but you have scipy 1.18.1 which is incompatible.
+datasets 4.8.5 requires huggingface-hub<2.0,>=0.25.0, but you have huggingface-hub 2.4.0 which is incompatible.
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+transformers 5.24.0
+
+[05:26:55 | +  0.6 min] STEP 1  data: POPE-COCO 300 images, POPE-A-OKVQA 200 images (COCO photos), ~5 min
+coco: 300 images, 1800 questions per split
+aokvqa: 200 images, 1200 questions per split
+
+[05:27:15 | +  0.9 min] STEP 2  experiments on both GPUs in parallel
+
+[05:27:15 | +  0.9 min] [GPU0] START Q7/Q10 deployment benchmark
+[GPU0] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[05:28:15 | +  1.9 min] [GPU1] START Q5 exactness in generation
+[GPU1] exactgen|greedy 1/20 identical so far 1/1  49s
+[GPU0] B= 1 plain model (1 pass)                                   505.3 ms/q  p95   578.0   1.98 q/s  peak 13.36 GB (+0.07)  2nd pass 0%
+[GPU1] exactgen|greedy 6/20 identical so far 6/6  289s
+[GPU0] B= 1 VCD sequential (2 passes)                             1119.1 ms/q  p95  1138.3   0.89 q/s  peak 13.36 GB (+0.07)  2nd pass 100%
+[GPU1] exactgen|greedy 11/20 identical so far 11/11  537s
+[GPU0] B= 1 VCD batched (both images in one batch)                 981.5 ms/q  p95   991.3   1.02 q/s  peak 13.43 GB (+0.14)  2nd pass 100%
+[GPU0] B= 1 exact gate (skip 2nd pass when provably redundant)     758.4 ms/q  p95  1124.9   1.32 q/s  peak 13.36 GB (+0.07)  2nd pass 36%
+[GPU1] exactgen|greedy 16/20 identical so far 16/16  780s
+[GPU0] B= 8 plain model (1 pass)                                   487.8 ms/q  p95   493.4   2.05 q/s  peak 13.83 GB (+0.54)  2nd pass 0%
+[GPU1] greedy: identical 20/20 | negative passes VCD 480 vs gate 297 (38.1% saved)
+[GPU1] Traceback (most recent call last):
+[GPU1]   File "/kaggle/working/egvcd_review.py", line 336, in <module>
+[GPU1]     elif a.cmd == "exactgen": exactgen(a.n_img, a.max_new)
+[GPU1]                               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+[GPU1]   File "/kaggle/working/egvcd_review.py", line 276, in exactgen
+[GPU1]     a, sa = decode(mode, inp, pv, pvn, False, st[False], seed + k)
+[GPU1]             ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[GPU1]   File "/kaggle/working/egvcd_review.py", line 248, in decode
+[GPU1]     t = int(min(int(torch.searchsorted(cdf, torch.tensor([u * float(cdf[-1])], dtype=cdf.dtype))), cdf.numel() - 1))
+[GPU1]                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[GPU1] RuntimeError: Expected all tensors to be on the same device, but got self is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA_Tensor_searchsorted)
+
+[05:45:29 | + 19.2 min] [GPU1] FAILED (see above), continuing  Q5 exactness in generation
+
+=== Q8  MORE DATA / NEW DATASETS  (exact gate on POPE; image-clustered 95% CIs)
+
+wrote review/review_gpu_numbers.json and review/review_gpu_report.txt
+
+[05:45:30 | + 19.2 min] [GPU1] START Q8 COCO 300 images Qwen3-VL-4B
+[GPU1] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[GPU0] B= 8 VCD sequential (2 passes)                              979.9 ms/q  p95   987.9   1.02 q/s  peak 13.84 GB (+0.55)  2nd pass 100%
+[GPU0] B=8 VCD batched (both images in one batch): OUT OF MEMORY
+[GPU1] loaded Qwen/Qwen3-VL-4B-Instruct with AutoModelForImageTextToText(dtype=float16)
+[GPU1] qwen3vl_4b|coco|random 0/1800  ~122 min left
+[GPU1] qwen3vl_4b|coco|random 200/1800  ~14 min left
+[GPU0] B= 8 exact gate (skip 2nd pass when provably redundant)     678.0 ms/q  p95   744.4   1.47 q/s  peak 13.83 GB (+0.54)  2nd pass 36%
+[GPU0] B=16 plain model (1 pass): OUT OF MEMORY
+[GPU0] B=16 VCD sequential (2 passes): OUT OF MEMORY
+[GPU0] B=16 VCD batched (both images in one batch): OUT OF MEMORY
+[GPU0] B=16 exact gate (skip 2nd pass when provably redundant): OUT OF MEMORY
+
+[05:49:02 | + 22.7 min] [GPU0] DONE  Q7/Q10 deployment benchmark
+=== Q7/Q10  DEPLOYMENT BENCHMARK  (LLaVA-1.5-7B, POPE, one T4, fp16; preprocessing excluded, identical for all methods)
+batch method                                               ms/question      p95    q/s  peak GB 2nd pass  answers != batched VCD
+1     plain model (1 pass)                                       505.3    578.0   1.98    13.36       0%
+1     VCD sequential (2 passes)                                 1119.1   1138.3   0.89    13.36     100%  0
+1     VCD batched (both images in one batch)                     981.5    991.3   1.02    13.43     100%
+1     exact gate (skip 2nd pass when provably redundant)         758.4   1124.9   1.32    13.36      36%  0
+8     plain model (1 pass)                                       487.8    493.4   2.05    13.83       0%
+8     VCD sequential (2 passes)                                  979.9    987.9   1.02    13.84     100%
+8     VCD batched (both images in one batch)               OUT OF MEMORY
+8     exact gate (skip 2nd pass when provably redundant)         678.0    744.4   1.47    13.83      36%
+16    plain model (1 pass)                                 OUT OF MEMORY
+16    VCD sequential (2 passes)                            OUT OF MEMORY
+16    VCD batched (both images in one batch)               OUT OF MEMORY
+16    exact gate (skip 2nd pass when provably redundant)   OUT OF MEMORY
+
+=== Q8  MORE DATA / NEW DATASETS  (exact gate on POPE; image-clustered 95% CIs)
+
+wrote review/review_gpu_numbers.json and review/review_gpu_report.txt
+
+[05:49:03 | + 22.7 min] [GPU0] START Q8 A-OKVQA LLaVA-1.5-7B
+[GPU0] llava7b|aokvqa|random 0/1200  ~43 min left
+[GPU1] qwen3vl_4b|coco|random 400/1800  ~13 min left
+[GPU1] qwen3vl_4b|coco|random 600/1800  ~11 min left
+[GPU0] llava7b|aokvqa|random 200/1200  ~19 min left
+[GPU1] qwen3vl_4b|coco|random 800/1800  ~10 min left
+[GPU1] qwen3vl_4b|coco|random 1000/1800  ~8 min left
+[GPU0] llava7b|aokvqa|random 400/1200  ~15 min left
+[GPU1] qwen3vl_4b|coco|random 1200/1800  ~6 min left
+[GPU1] qwen3vl_4b|coco|random 1400/1800  ~4 min left
+[GPU0] llava7b|aokvqa|random 600/1200  ~11 min left
+[GPU1] qwen3vl_4b|coco|random 1600/1800  ~2 min left
+[GPU1] saved /kaggle/working/egvcd_data/review/cache_qwen3vl_4b_coco/clean_random.npz
+[GPU1] qwen3vl_4b|coco|popular 0/1800  ~18 min left
+[GPU0] llava7b|aokvqa|random 800/1200  ~8 min left
+[GPU1] qwen3vl_4b|coco|popular 200/1800  ~15 min left
+[GPU1] qwen3vl_4b|coco|popular 400/1800  ~13 min left
+[GPU0] llava7b|aokvqa|random 1000/1200  ~4 min left
+[GPU1] qwen3vl_4b|coco|popular 600/1800  ~11 min left
+[GPU0] saved /kaggle/working/egvcd_data/review/cache_llava7b_aokvqa/clean_random.npz
+[GPU0] llava7b|aokvqa|popular 0/1200  ~23 min left
+[GPU1] qwen3vl_4b|coco|popular 800/1800  ~10 min left
+[GPU1] qwen3vl_4b|coco|popular 1000/1800  ~8 min left
+[GPU0] llava7b|aokvqa|popular 200/1200  ~19 min left
+[GPU1] qwen3vl_4b|coco|popular 1200/1800  ~6 min left
+[GPU1] qwen3vl_4b|coco|popular 1400/1800  ~4 min left
+[GPU0] llava7b|aokvqa|popular 400/1200  ~15 min left
+[GPU1] qwen3vl_4b|coco|popular 1600/1800  ~2 min left
+[GPU1] saved /kaggle/working/egvcd_data/review/cache_qwen3vl_4b_coco/clean_popular.npz
+[GPU1] qwen3vl_4b|coco|adversarial 0/1800  ~18 min left
+[GPU0] llava7b|aokvqa|popular 600/1200  ~11 min left
+[GPU1] qwen3vl_4b|coco|adversarial 200/1800  ~15 min left
+[GPU1] qwen3vl_4b|coco|adversarial 400/1800  ~13 min left
+[GPU0] llava7b|aokvqa|popular 800/1200  ~8 min left
+[GPU1] qwen3vl_4b|coco|adversarial 600/1800  ~11 min left
+[GPU1] qwen3vl_4b|coco|adversarial 800/1800  ~10 min left
+[GPU0] llava7b|aokvqa|popular 1000/1200  ~4 min left
+[GPU1] qwen3vl_4b|coco|adversarial 1000/1800  ~8 min left
+[GPU1] qwen3vl_4b|coco|adversarial 1200/1800  ~6 min left
+[GPU0] saved /kaggle/working/egvcd_data/review/cache_llava7b_aokvqa/clean_popular.npz
+[GPU0] llava7b|aokvqa|adversarial 0/1200  ~23 min left
+[GPU1] qwen3vl_4b|coco|adversarial 1400/1800  ~4 min left
+[GPU1] qwen3vl_4b|coco|adversarial 1600/1800  ~2 min left
+[GPU0] llava7b|aokvqa|adversarial 200/1200  ~19 min left
+[GPU1] saved /kaggle/working/egvcd_data/review/cache_qwen3vl_4b_coco/clean_adversarial.npz
+
+[06:40:02 | + 73.7 min] [GPU1] DONE  Q8 COCO 300 images Qwen3-VL-4B
+=== Q7/Q10  DEPLOYMENT BENCHMARK  (LLaVA-1.5-7B, POPE, one T4, fp16; preprocessing excluded, identical for all methods)
+batch method                                               ms/question      p95    q/s  peak GB 2nd pass  answers != batched VCD
+1     plain model (1 pass)                                       505.3    578.0   1.98    13.36       0%
+1     VCD sequential (2 passes)                                 1119.1   1138.3   0.89    13.36     100%  0
+1     VCD batched (both images in one batch)                     981.5    991.3   1.02    13.43     100%
+1     exact gate (skip 2nd pass when provably redundant)         758.4   1124.9   1.32    13.36      36%  0
+8     plain model (1 pass)                                       487.8    493.4   2.05    13.83       0%
+8     VCD sequential (2 passes)                                  979.9    987.9   1.02    13.84     100%
+8     VCD batched (both images in one batch)               OUT OF MEMORY
+8     exact gate (skip 2nd pass when provably redundant)         678.0    744.4   1.47    13.83      36%
+16    plain model (1 pass)                                 OUT OF MEMORY
+16    VCD sequential (2 passes)                            OUT OF MEMORY
+16    VCD batched (both images in one batch)               OUT OF MEMORY
+16    exact gate (skip 2nd pass when provably redundant)   OUT OF MEMORY
+
+=== Q8  MORE DATA / NEW DATASETS  (exact gate on POPE; image-clustered 95% CIs)
+qwen3vl_4b_coco         5400 q / 300 img | skippable  82.9% | exact 0e+00 | base 89.0 VCD 89.6 | sampled gain +0.66 [+0.19,+1.11] (APC-only +0.15) | greedy gain +0.33 [-0.33,+1.00]
+
+wrote review/review_gpu_numbers.json and review/review_gpu_report.txt
+[GPU0] llava7b|aokvqa|adversarial 400/1200  ~15 min left
+[GPU0] llava7b|aokvqa|adversarial 600/1200  ~11 min left
+[GPU0] llava7b|aokvqa|adversarial 800/1200  ~8 min left
+[GPU0] llava7b|aokvqa|adversarial 1000/1200  ~4 min left
+[GPU0] saved /kaggle/working/egvcd_data/review/cache_llava7b_aokvqa/clean_adversarial.npz
+
+[06:57:41 | + 91.3 min] [GPU0] DONE  Q8 A-OKVQA LLaVA-1.5-7B
+=== Q7/Q10  DEPLOYMENT BENCHMARK  (LLaVA-1.5-7B, POPE, one T4, fp16; preprocessing excluded, identical for all methods)
+batch method                                               ms/question      p95    q/s  peak GB 2nd pass  answers != batched VCD
+1     plain model (1 pass)                                       505.3    578.0   1.98    13.36       0%
+1     VCD sequential (2 passes)                                 1119.1   1138.3   0.89    13.36     100%  0
+1     VCD batched (both images in one batch)                     981.5    991.3   1.02    13.43     100%
+1     exact gate (skip 2nd pass when provably redundant)         758.4   1124.9   1.32    13.36      36%  0
+8     plain model (1 pass)                                       487.8    493.4   2.05    13.83       0%
+8     VCD sequential (2 passes)                                  979.9    987.9   1.02    13.84     100%
+8     VCD batched (both images in one batch)               OUT OF MEMORY
+8     exact gate (skip 2nd pass when provably redundant)         678.0    744.4   1.47    13.83      36%
+16    plain model (1 pass)                                 OUT OF MEMORY
+16    VCD sequential (2 passes)                            OUT OF MEMORY
+16    VCD batched (both images in one batch)               OUT OF MEMORY
+16    exact gate (skip 2nd pass when provably redundant)   OUT OF MEMORY
+
+=== Q8  MORE DATA / NEW DATASETS  (exact gate on POPE; image-clustered 95% CIs)
+llava7b_aokvqa          3600 q / 200 img | skippable  54.5% | exact 0e+00 | base 79.0 VCD 80.8 | sampled gain +1.81 [+1.17,+2.43] (APC-only +1.66) | greedy gain -2.47 [-3.64,-1.22]
+qwen3vl_4b_coco         5400 q / 300 img | skippable  82.9% | exact 0e+00 | base 89.0 VCD 89.6 | sampled gain +0.66 [+0.19,+1.11] (APC-only +0.15) | greedy gain +0.33 [-0.33,+1.00]
+
+wrote review/review_gpu_numbers.json and review/review_gpu_report.txt
+
+[06:57:41 | + 91.4 min] [GPU0] START Q8 A-OKVQA Qwen3-VL-4B
+[GPU0] loaded Qwen/Qwen3-VL-4B-Instruct with AutoModelForImageTextToText(dtype=float16)
+[GPU0] qwen3vl_4b|aokvqa|random 0/1200  ~39 min left
+[GPU0] qwen3vl_4b|aokvqa|random 200/1200  ~10 min left
+[GPU0] qwen3vl_4b|aokvqa|random 400/1200  ~8 min left
+[GPU0] qwen3vl_4b|aokvqa|random 600/1200  ~6 min left
+[GPU0] qwen3vl_4b|aokvqa|random 800/1200  ~4 min left
+[GPU0] qwen3vl_4b|aokvqa|random 1000/1200  ~2 min left
+[GPU0] saved /kaggle/working/egvcd_data/review/cache_qwen3vl_4b_aokvqa/clean_random.npz
+[GPU0] qwen3vl_4b|aokvqa|popular 0/1200  ~15 min left
+[GPU0] qwen3vl_4b|aokvqa|popular 200/1200  ~10 min left
+[GPU0] qwen3vl_4b|aokvqa|popular 400/1200  ~8 min left
+[GPU0] qwen3vl_4b|aokvqa|popular 600/1200  ~6 min left
+[GPU0] qwen3vl_4b|aokvqa|popular 800/1200  ~4 min left
+[GPU0] qwen3vl_4b|aokvqa|popular 1000/1200  ~2 min left
+[GPU0] saved /kaggle/working/egvcd_data/review/cache_qwen3vl_4b_aokvqa/clean_popular.npz
+[GPU0] qwen3vl_4b|aokvqa|adversarial 0/1200  ~15 min left
+[GPU0] qwen3vl_4b|aokvqa|adversarial 200/1200  ~10 min left
+[GPU0] qwen3vl_4b|aokvqa|adversarial 400/1200  ~8 min left
+[GPU0] qwen3vl_4b|aokvqa|adversarial 600/1200  ~6 min left
+[GPU0] qwen3vl_4b|aokvqa|adversarial 800/1200  ~4 min left
+[GPU0] qwen3vl_4b|aokvqa|adversarial 1000/1200  ~2 min left
+[GPU0] saved /kaggle/working/egvcd_data/review/cache_qwen3vl_4b_aokvqa/clean_adversarial.npz
+
+[07:33:13 | +126.9 min] [GPU0] DONE  Q8 A-OKVQA Qwen3-VL-4B
+=== Q7/Q10  DEPLOYMENT BENCHMARK  (LLaVA-1.5-7B, POPE, one T4, fp16; preprocessing excluded, identical for all methods)
+batch method                                               ms/question      p95    q/s  peak GB 2nd pass  answers != batched VCD
+1     plain model (1 pass)                                       505.3    578.0   1.98    13.36       0%
+1     VCD sequential (2 passes)                                 1119.1   1138.3   0.89    13.36     100%  0
+1     VCD batched (both images in one batch)                     981.5    991.3   1.02    13.43     100%
+1     exact gate (skip 2nd pass when provably redundant)         758.4   1124.9   1.32    13.36      36%  0
+8     plain model (1 pass)                                       487.8    493.4   2.05    13.83       0%
+8     VCD sequential (2 passes)                                  979.9    987.9   1.02    13.84     100%
+8     VCD batched (both images in one batch)               OUT OF MEMORY
+8     exact gate (skip 2nd pass when provably redundant)         678.0    744.4   1.47    13.83      36%
+16    plain model (1 pass)                                 OUT OF MEMORY
+16    VCD sequential (2 passes)                            OUT OF MEMORY
+16    VCD batched (both images in one batch)               OUT OF MEMORY
+16    exact gate (skip 2nd pass when provably redundant)   OUT OF MEMORY
+
+=== Q8  MORE DATA / NEW DATASETS  (exact gate on POPE; image-clustered 95% CIs)
+llava7b_aokvqa          3600 q / 200 img | skippable  54.5% | exact 0e+00 | base 79.0 VCD 80.8 | sampled gain +1.81 [+1.17,+2.43] (APC-only +1.66) | greedy gain -2.47 [-3.64,-1.22]
+qwen3vl_4b_aokvqa       3600 q / 200 img | skippable  79.2% | exact 0e+00 | base 89.2 VCD 89.2 | sampled gain +0.05 [-0.50,+0.63] (APC-only +0.14) | greedy gain -0.11 [-0.92,+0.72]
+qwen3vl_4b_coco         5400 q / 300 img | skippable  82.9% | exact 0e+00 | base 89.0 VCD 89.6 | sampled gain +0.66 [+0.19,+1.11] (APC-only +0.15) | greedy gain +0.33 [-0.33,+1.00]
+
+wrote review/review_gpu_numbers.json and review/review_gpu_report.txt
+
+[07:33:13 | +126.9 min] FINAL REPORT
+=== Q7/Q10  DEPLOYMENT BENCHMARK  (LLaVA-1.5-7B, POPE, one T4, fp16; preprocessing excluded, identical for all methods)
+batch method                                               ms/question      p95    q/s  peak GB 2nd pass  answers != batched VCD
+1     plain model (1 pass)                                       505.3    578.0   1.98    13.36       0%
+1     VCD sequential (2 passes)                                 1119.1   1138.3   0.89    13.36     100%  0
+1     VCD batched (both images in one batch)                     981.5    991.3   1.02    13.43     100%
+1     exact gate (skip 2nd pass when provably redundant)         758.4   1124.9   1.32    13.36      36%  0
+8     plain model (1 pass)                                       487.8    493.4   2.05    13.83       0%
+8     VCD sequential (2 passes)                                  979.9    987.9   1.02    13.84     100%
+8     VCD batched (both images in one batch)               OUT OF MEMORY
+8     exact gate (skip 2nd pass when provably redundant)         678.0    744.4   1.47    13.83      36%
+16    plain model (1 pass)                                 OUT OF MEMORY
+16    VCD sequential (2 passes)                            OUT OF MEMORY
+16    VCD batched (both images in one batch)               OUT OF MEMORY
+16    exact gate (skip 2nd pass when provably redundant)   OUT OF MEMORY
+
+=== Q8  MORE DATA / NEW DATASETS  (exact gate on POPE; image-clustered 95% CIs)
+llava7b_aokvqa          3600 q / 200 img | skippable  54.5% | exact 0e+00 | base 79.0 VCD 80.8 | sampled gain +1.81 [+1.17,+2.43] (APC-only +1.66) | greedy gain -2.47 [-3.64,-1.22]
+qwen3vl_4b_aokvqa       3600 q / 200 img | skippable  79.2% | exact 0e+00 | base 89.2 VCD 89.2 | sampled gain +0.05 [-0.50,+0.63] (APC-only +0.14) | greedy gain -0.11 [-0.92,+0.72]
+qwen3vl_4b_coco         5400 q / 300 img | skippable  82.9% | exact 0e+00 | base 89.0 VCD 89.6 | sampled gain +0.66 [+0.19,+1.11] (APC-only +0.15) | greedy gain +0.33 [-0.33,+1.00]
+
+wrote review/review_gpu_numbers.json and review/review_gpu_report.txt
+
+[07:33:13 | +126.9 min] threshold sweep + skip-criterion comparison on the new data
+
+######## /kaggle/working/egvcd_data/review/cache_llava7b_aokvqa   (3600 questions, 200 images)
+Q4  beta | skip% | passes/q | modelled ms/q | acc base | acc VCD | VCD gain [95% CI] | of which APC-only | greedy gain | false-yes base->VCD | exact
+    0.01  |   7.6 | 1.92 |   1247 | 78.98 | 80.13 | +1.14 [+0.52,+1.74] | +0.05 | -2.47 | 21.5->28.2 | 0e+00
+    0.02  |  18.9 | 1.81 |   1175 | 78.98 | 80.17 | +1.19 [+0.57,+1.78] | +0.21 | -2.47 | 21.5->28.1 | 0e+00
+    0.05  |  39.4 | 1.61 |   1045 | 78.98 | 80.43 | +1.45 [+0.84,+2.04] | +0.81 | -2.47 | 21.5->27.7 | 0e+00
+    0.1   |  54.5 | 1.46 |    950 | 78.98 | 80.79 | +1.81 [+1.17,+2.43] | +1.66 | -2.47 | 21.5->27.0 | 0e+00
+    0.2   |  67.9 | 1.32 |    865 | 78.98 | 81.46 | +2.48 [+1.78,+3.12] | +2.74 | -2.42 | 21.5->25.3 | 0e+00
+    0.3   |  76.2 | 1.24 |    812 | 78.98 | 82.23 | +3.25 [+2.53,+3.93] | +3.62 | -2.11 | 21.5->23.6 | 0e+00
+    0.5   |  86.7 | 1.13 |    746 | 78.98 | 83.61 | +4.63 [+3.90,+5.40] | +4.68 | -1.03 | 21.5->20.4 | 0e+00
+Q6  share of VCD's sampled gain kept (%) at a given share of questions that get the 2nd pass (exact gate first; it needs 45.5%)
+    budget ->                                                  0%      5%     10%     15%     20%     30%     40%
+    entropy | fallback: plain model                            0.0     0.3    -7.8    -6.7   -12.6   -16.7     1.7
+    1 - max prob (confidence) | fallback: plain model          0.0     0.1    -7.8    -6.7   -12.6   -16.7     1.7
+    small top-2 margin | fallback: plain model                 0.0    -1.4    -7.8    -6.7   -13.1   -16.7     1.8
+    random | fallback: plain model                             0.0     5.0    14.7    20.4    23.9    21.1    13.4
+    oracle (true gain, upper bound) | fallback: plain model    0.0   112.5   172.3   212.2   240.2   242.0   132.1
+    entropy | fallback: APC-truncated (ours)                  91.6    92.0    83.8    84.9    79.0    74.9    93.3
+    1 - max prob (confidence) | fallback: APC-truncated (ours)   91.6    91.7    83.8    84.9    79.0    74.9    93.3
+    small top-2 margin | fallback: APC-truncated (ours)       91.6    90.3    83.8    84.9    78.5    74.9    93.4
+    random | fallback: APC-truncated (ours)                   91.6    96.7   106.3   112.0   115.5   112.7   105.0
+    oracle (true gain, upper bound) | fallback: APC-truncated (ours)   91.6   204.1   263.9   303.8   331.8   333.6   223.7
+Q3  truncation only (plain model restricted to the plausible set, NO second pass) minus default VCD (beta=0.1), sampled accuracy:
+    beta=0.3: +1.81 [+1.12,+2.54]  (beta chosen after seeing the data: exploratory)
+    beta=0.5: +2.87 [+2.05,+3.66]  (beta chosen after seeing the data: exploratory)
+
+######## /kaggle/working/egvcd_data/review/cache_qwen3vl_4b_aokvqa   (3600 questions, 200 images)
+Q4  beta | skip% | passes/q | modelled ms/q | acc base | acc VCD | VCD gain [95% CI] | of which APC-only | greedy gain | false-yes base->VCD | exact
+    0.01  |  58.9 | 1.41 |    922 | 89.17 | 89.12 | -0.04 [-0.67,+0.65] | +0.03 | -0.33 | 12.2->15.0 | 0e+00
+    0.02  |  64.6 | 1.35 |    886 | 89.17 | 89.11 | -0.06 [-0.70,+0.62] | +0.04 | -0.33 | 12.2->14.8 | 0e+00
+    0.05  |  73.1 | 1.27 |    832 | 89.17 | 89.31 | +0.14 [-0.46,+0.74] | +0.09 | -0.03 | 12.2->14.2 | 0e+00
+    0.1   |  79.2 | 1.21 |    793 | 89.17 | 89.22 | +0.05 [-0.50,+0.63] | +0.14 | -0.11 | 12.2->13.9 | 0e+00
+    0.2   |  84.8 | 1.15 |    757 | 89.17 | 89.57 | +0.41 [-0.11,+0.93] | +0.27 | +0.25 | 12.2->13.2 | 0e+00
+    0.3   |  89.3 | 1.11 |    729 | 89.17 | 89.68 | +0.51 [+0.06,+1.01] | +0.41 | +0.39 | 12.2->12.8 | 0e+00
+    0.5   |  93.6 | 1.06 |    702 | 89.17 | 89.68 | +0.51 [+0.13,+0.96] | +0.39 | +0.47 | 12.2->12.4 | 0e+00
+Q6  share of VCD's sampled gain kept (%) at a given share of questions that get the 2nd pass (exact gate first; it needs 20.8%)
+    budget ->                                                  0%      5%     10%     15%     20%     30%     40%
+    entropy | fallback: plain model                            0.0  -202.5  -148.0   159.0   -82.0  -135.9  -135.9
+    1 - max prob (confidence) | fallback: plain model          0.0   -15.6  -145.4   160.2   -81.4  -135.9  -135.9
+    small top-2 margin | fallback: plain model                 0.0   -11.7    55.7   148.8   -86.2  -135.9  -135.9
+    random | fallback: plain model                             0.0   -26.7   302.0  -133.3   -84.8  -135.9  -135.9
+    oracle (true gain, upper bound) | fallback: plain model    0.0  2448.5  2460.9  2460.9   870.9  -135.9  -135.9
+    entropy | fallback: APC-truncated (ours)                 255.2    60.4   115.8   400.9   153.9   100.0   100.0
+    1 - max prob (confidence) | fallback: APC-truncated (ours)  255.2   244.6   140.1   420.0   154.8   100.0   100.0
+    small top-2 margin | fallback: APC-truncated (ours)      255.2   251.4   325.8   412.0   154.8   100.0   100.0
+    random | fallback: APC-truncated (ours)                  255.2   207.4   528.9    95.3   149.7   100.0   100.0
+    oracle (true gain, upper bound) | fallback: APC-truncated (ours)  255.2  2636.4  2636.4  2636.4  1110.2   100.0   100.0
+Q3  truncation only (plain model restricted to the plausible set, NO second pass) minus default VCD (beta=0.1), sampled accuracy:
+    beta=0.3: +0.36 [-0.23,+0.94]  (beta chosen after seeing the data: exploratory)
+    beta=0.5: +0.34 [-0.29,+0.99]  (beta chosen after seeing the data: exploratory)
+
+######## /kaggle/working/egvcd_data/review/cache_qwen3vl_4b_coco   (5400 questions, 300 images)
+Q4  beta | skip% | passes/q | modelled ms/q | acc base | acc VCD | VCD gain [95% CI] | of which APC-only | greedy gain | false-yes base->VCD | exact
+    0.01  |  65.5 | 1.35 |    880 | 88.98 | 89.16 | +0.18 [-0.35,+0.74] | +0.02 | -0.11 | 4.5->7.4 | 0e+00
+    0.02  |  70.9 | 1.29 |    846 | 88.98 | 89.29 | +0.31 [-0.23,+0.88] | +0.04 | +0.00 | 4.5->7.1 | 0e+00
+    0.05  |  77.7 | 1.22 |    803 | 88.98 | 89.42 | +0.44 [-0.03,+0.96] | +0.09 | +0.09 | 4.5->6.6 | 0e+00
+    0.1   |  82.9 | 1.17 |    769 | 88.98 | 89.64 | +0.66 [+0.19,+1.11] | +0.15 | +0.33 | 4.5->6.0 | 0e+00
+    0.2   |  88.1 | 1.12 |    737 | 88.98 | 89.70 | +0.72 [+0.28,+1.16] | +0.21 | +0.37 | 4.5->5.4 | 0e+00
+    0.3   |  90.7 | 1.09 |    720 | 88.98 | 89.63 | +0.65 [+0.26,+1.04] | +0.25 | +0.31 | 4.5->5.1 | 0e+00
+    0.5   |  94.8 | 1.05 |    694 | 88.98 | 89.72 | +0.74 [+0.40,+1.07] | +0.47 | +0.37 | 4.5->4.7 | 0e+00
+Q6  share of VCD's sampled gain kept (%) at a given share of questions that get the 2nd pass (exact gate first; it needs 17.1%)
+    budget ->                                                  0%      5%     10%     15%     20%     30%     40%
+    entropy | fallback: plain model                            0.0    42.6    59.6    75.9    78.9    78.9    78.9
+    1 - max prob (confidence) | fallback: plain model          0.0    42.2    57.5    76.1    78.9    78.9    78.9
+    small top-2 margin | fallback: plain model                 0.0    48.9    65.6    74.8    78.9    78.9    78.9
+    random | fallback: plain model                             0.0    11.0    40.5    64.9    78.9    78.9    78.9
+    oracle (true gain, upper bound) | fallback: plain model    0.0   235.5   235.7   222.9    78.9    78.9    78.9
+    entropy | fallback: APC-truncated (ours)                  22.9    64.7    81.0    97.0   100.0   100.0   100.0
+    1 - max prob (confidence) | fallback: APC-truncated (ours)   22.9    65.0    79.6    97.3   100.0   100.0   100.0
+    small top-2 margin | fallback: APC-truncated (ours)       22.9    71.4    88.8    96.8   100.0   100.0   100.0
+    random | fallback: APC-truncated (ours)                   22.9    32.6    61.9    86.4   100.0   100.0   100.0
+    oracle (true gain, upper bound) | fallback: APC-truncated (ours)   22.9   254.7   254.7   243.7   100.0   100.0   100.0
+Q3  truncation only (plain model restricted to the plausible set, NO second pass) minus default VCD (beta=0.1), sampled accuracy:
+    beta=0.3: -0.41 [-0.91,+0.07]  (beta chosen after seeing the data: exploratory)
+    beta=0.5: -0.20 [-0.73,+0.32]  (beta chosen after seeing the data: exploratory)
+
+FAILED JOBS: ['/kaggle/working/egvcd_review.py exactgen --n_img 20 --max_new 24']
+
+[07:33:15 | +126.9 min] ALL DONE. Send me the FINAL REPORT printed above + /kaggle/working/review_results.zip (Output tab)
